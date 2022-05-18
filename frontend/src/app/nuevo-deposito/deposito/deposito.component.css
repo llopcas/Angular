@@ -1,0 +1,67 @@
+:root {
+    --verdePrincipal: #062C30;
+    --verdeClaro:#05595B;
+    --amarillo: #E2D784;
+    --blanco: #F5F5F5;
+  }
+  
+  main {
+    border-bottom: 500px;
+    background-color: var(--verdePrincipal);
+    font-size: 1.5em;
+  }
+  
+  body {
+    margin-bottom: 250px;
+  }
+  
+  div {
+    margin-top: .5em;
+  }
+  
+  /*#contenedorFormulario {
+    margin-top: 150px;
+    margin-bottom: 0px;
+    color: var(--amarillo);
+  }*/
+  
+  #contenedorFormulario {
+    margin-top: 7.5em;
+    margin-bottom: 0px;
+    color: var(--amarillo);
+  }
+  
+  
+  
+  
+  /* Este estilo se utiliza para mostrar un elemento en la página de Creación de negocio cuando el ancho de la pantalla sea menor de 700px */
+  @media screen and (max-width: 700px) {
+    .ocultar-div3{
+    display:none;
+    }
+  }
+  
+  #botonRegistro {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  
+  #botonRegistro2 {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  
+  
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .absCenter {
+    position:absolute;
+    top: 30%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+  }
+  
+  
