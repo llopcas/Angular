@@ -80,27 +80,6 @@
   animation-delay: 1s;
 }
 
-.cont_banner_sec_3{
-  height: 100vh;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  padding: 10%;
-  margin-top: 200px;
-  margin-bottom: 100px;
-}
-
-.cont_banner_sec_3 .row{
-  background-color: rgba(1, 1, 1, 0.7);
-  color: #fff;
-  padding: 2%;
-}
-
-.cont_banner_sec_3 h1{
-  font-size: 2.9vw;
-}
 
 .cont_img{
   padding: 5%;
@@ -135,19 +114,6 @@ body {
 .cont_sec_1_link a{
   width: 200px;
 }
-
-.cont_sec_1 hr{
-  border-top: 2px solid rgba(1, 1,1, 0.5);
-}
-
-.cont2 h1{
-  font-size: 2.9vw;
-}
-
-.cont2 p{
-  font-size: 1.9vw;
-}
-
 
 .container3 hr{
   border-top: 2px solid rgba(1, 1,1, 0);
