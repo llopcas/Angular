@@ -1,17 +1,23 @@
 
-<section>
-  <!-- Banner animado -->
-  <div class="banner">
-      <div class="sombra">
-          <h1>Bullseye</h1>
-          <p>Bienvenido a la Aplicación</p>
-          <hr />
-          <div class="banner_link">
-              <a class="banner_link" href="">Carga y Consulta</a>
-              <a class="banner_link_1" href="">Depositos</a>
-          </div>
-      </div>
-  </div>
-</section>
+<header class="sticky">
+  <div class="cont_banner_sec_3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h1>Acceso a Bullseye-App</h1>
+                <p>Depositar Armas, Modificar Armas sepositadas y Sacar armas del Deposito.</p>
+                <div class="sombra">
 
+                  <div class="banner_link">
+                    <a routerLink= "armas" class="banner_link"> Comencemos </a>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-8 cont_img text-center">
+                <img data-aos="fade-right" src="/assets/AK47.jpeg" class="img-fluid" alt="AK-47">
+            </div>
+        </div>
+    </div>
+</div>
+</header>
 <router-outlet></router-outlet>

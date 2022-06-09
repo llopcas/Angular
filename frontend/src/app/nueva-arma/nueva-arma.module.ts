@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ArmaRoutingModule } from './arma-routing.module';
+import { NuevaArmaRoutingModule } from './nueva-arma-routing.module';
 import { ArmasComponent } from './armas/armas.component';
 
 
 @NgModule({
   declarations: [
     ArmasComponent,
-
+    
   ],
   imports: [
     CommonModule,
-    ArmaRoutingModule
+    NuevaArmaRoutingModule
   ]
 })
-export class ArmaModule { }
+export class NuevaArmaModule { }
