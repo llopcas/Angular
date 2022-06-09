@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '' ,
     component: ArmasComponent
-    
+
   }
 ];
 
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class NuevaArmaRoutingModule { }
+export class ArmaRoutingModule { }

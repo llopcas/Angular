@@ -5,19 +5,24 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './shell/footer/footer.component';
 import { HeaderComponent } from './shell/header/header.component';
 import { MainComponent } from './shell/main/main.component';
-import { NotFoundComponent } from './shell/not-found/not-found.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [ShellComponent,
+  declarations: [
+    ShellComponent,
     HeaderComponent,
     MainComponent,
     FooterComponent,
     NotFoundComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule,
+    FormsModule
   ],
   exports: [ShellComponent]
 })
