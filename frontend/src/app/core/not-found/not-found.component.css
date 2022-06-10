@@ -13,7 +13,7 @@ section.notFound {
     align-items: center;
     margin: 0 5%;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: #241e1e;
 }
 
 section.notFound h1 {
@@ -21,8 +21,9 @@ section.notFound h1 {
     font-size: 100px;
 }
 
-section.notFound h2 {
+section.notFound p,a {
     font-size: 50px;
+    color:  rgb(157, 3, 31);
 }
 
 section.notFound h1,
