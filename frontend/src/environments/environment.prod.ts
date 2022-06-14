@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  host: 'https://bullseye.herokuapp.com/api/',
+  itemsPorPagina: 10
 };

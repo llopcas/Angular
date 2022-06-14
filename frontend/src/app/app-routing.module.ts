@@ -9,11 +9,11 @@ const routes: Routes = [
   },
   {
     path: 'armas',
-    loadChildren: () => import("src/app/nueva-arma/nueva-arma.module").then((m) => m.NuevaArmaModule),
+    loadChildren: () => import("src/app/armas/armas.module").then((m) => m.ArmasModule),
   },
   {
     path: 'depositos',
-    loadChildren: () => import("src/app/nuevo-deposito/nuevo-deposito.module").then((m) => m.NuevoDepositoModule),
+    loadChildren: () => import("src/app/depositos/depositos.module").then((m) => m.DepositosModule),
   },
 
   {
