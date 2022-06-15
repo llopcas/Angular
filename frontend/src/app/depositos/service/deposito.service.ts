@@ -36,8 +36,7 @@ export class DepositoService {
   }
 
   mapearDeposito(depositoApi: any): DepositoImpl {
-  return new DepositoImpl(
-depositoApi.codigoDeposito);
+  return new DepositoImpl(depositoApi.codigoDeposito);
   }
 
   create(deposito: Deposito): void {

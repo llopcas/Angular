@@ -6,6 +6,7 @@ import { FooterComponent } from './shell/footer/footer.component';
 import { HeaderComponent } from './shell/header/header.component';
 import { MainComponent } from './shell/main/main.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from '../home/home/home.component';
 
 
 
