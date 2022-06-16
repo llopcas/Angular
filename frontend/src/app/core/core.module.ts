@@ -15,10 +15,11 @@ import { HomeComponent } from '../home/home/home.component';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    NotFoundComponent],
+    NotFoundComponent
+    ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [ShellComponent]
 })

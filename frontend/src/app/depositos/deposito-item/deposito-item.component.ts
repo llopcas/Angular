@@ -9,7 +9,7 @@ import { DepositoImpl } from '../models/deposito-impl';
   styleUrls: ['./deposito-item.component.css']
 })
 export class DepositoItemComponent implements OnInit {
-  @Input() deposito: Deposito = new DepositoImpl(0);
+  @Input() deposito: Deposito = new DepositoImpl(0, 0);
   @Output() depositoSeleccionado = new EventEmitter<Deposito>();
 
   constructor() { }

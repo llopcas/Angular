@@ -6,21 +6,26 @@ import { DepositosComponent } from './depositos/depositos.component';
 import { DepositoFormComponent } from './deposito-form/deposito-form.component';
 import { DepositoItemComponent } from './deposito-item/deposito-item.component';
 import { AuxiliarService } from '../service/auxiliar.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DepositoComponent } from './depositos/deposito/deposito.component';
+import { VerComponent } from './depositos/ver/ver.component';
+import { NuevoComponent } from './depositos/nuevo/nuevo.component';
 
 
 @NgModule({
   declarations: [
-   DepositosComponent,
+    DepositosComponent,
     DepositoComponent,
     DepositoItemComponent,
-    DepositoFormComponent
+    DepositoFormComponent,
+    VerComponent,
+    NuevoComponent
   ],
   imports: [
     CommonModule,
     DepositosRoutingModule,
-    FormsModule  ],
+    FormsModule,
+  ReactiveFormsModule  ],
     exports: [ DepositoComponent],
   providers: [AuxiliarService]
 })

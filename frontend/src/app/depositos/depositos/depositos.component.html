@@ -1,14 +1,24 @@
-<!-- <section>
+<header>
+  <a routerLink="depositos" class="button">Ver Depositos</a>
+  <a routerLink="deposito-form" class="button">Añadir nuevo Deposito</a>
+  </header>
+  <body>
+  
+  <router-outlet></router-outlet>
+  
+  
   <div class="row">
-    <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">Codigo de Deposito</div>
-  
+    <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">Codigo Deposito</div>
+    <!-- <div class="col-10 col-sm-10 col-md-3 col-lg-2 col-xl-2">APELLIDOS</div>
+    <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">CIUDAD</div>
+    <div class="col-10 col-sm-10 col-md-3 col-lg-2 col-xl-2">SERVICIOS</div> -->
   </div>
   
-  </section>
-  
-  <div *ngFor = "let usuario of depositos">
-    <app-deposito-item [deposito]="deposito" (despoitoSeleccionado) = "verDatos($event)"></app-deposito-item>
+  <div *ngFor="let deposito of depositos">
+    <app-deposito-item [deposito]="deposito" (depositoSeleccionado)="verDatos($event)"></app-deposito-item>
   </div>
+  
+  
   
   <!-- Modal -->
   <div class="modal fade" id="modalDeposito" tabindex="-1" role="dialog" aria-labelledby="datosDeposito"
@@ -16,18 +26,20 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="datosDeposito">Datos Completos Deposito</h5>
+          <h5 class="modal-title" id="datosEmpleado">Codigo Deposito</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <app-deposito [deposito] ='depositoVerDatos' (depositoEliminar) = 'onDepositoEliminar($event)'></app-deposito>
+          <app-deposito [deposito]="depositoVerDatos" (depositoEliminar)="onDepositoEliminar($event)"></app-deposito>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
   
+  
+  </body>

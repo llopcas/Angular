@@ -10,7 +10,7 @@ import { DepositoService } from '../service/deposito.service';
   styleUrls: ['./deposito-form.component.css']
 })
 export class DepositoFormComponent implements OnInit {
-  deposito: DepositoImpl = new DepositoImpl(0);
+  deposito: DepositoImpl = new DepositoImpl(0, 0);
 
   constructor(private depositoService: DepositoService) { }
 

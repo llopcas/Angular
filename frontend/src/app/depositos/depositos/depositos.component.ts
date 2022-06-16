@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
 import { Deposito } from '../models/deposito';
 import { DepositoImpl } from '../models/deposito-impl';
@@ -12,12 +13,13 @@ import { DepositoService } from '../service/deposito.service';
 export class DepositosComponent implements OnInit {
   depositos: Deposito[] = [];
   todosDepositos: Deposito[] = [];
-  depositoVerDatos: Deposito = new DepositoImpl(0);
+  depositoVerDatos: Deposito = new DepositoImpl(0, 0);
   numPaginas: number = 0;
   constructor(
   private depositoService: DepositoService,
-  private auxService: AuxiliarService
-  ) { }
+  private auxService: AuxiliarService,
+  private router: Router) { }
+ 
   ngOnInit(): void {
     this.depositoService.getDepositos().subscribe((response) =>
     this.depositos = this.depositoService.extraerDepositos(response));
@@ -28,6 +30,7 @@ export class DepositosComponent implements OnInit {
   }
   onDepositoEliminar(deposito: Deposito): void {
     console.log(`He eliminado a ${deposito.codigoDeposito}`);
+    
     this.depositos = this.depositos.filter(u => deposito !== u);
   }
   getTodosDepositos(): void {

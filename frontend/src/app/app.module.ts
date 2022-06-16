@@ -5,7 +5,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ArmasModule } from './armas/armas.module';
 import { CoreModule } from './core/core.module';
+import { DepositosModule } from './depositos/depositos.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { CoreModule } from './core/core.module';
     CoreModule,
     FormsModule,
     HttpClientModule,
+    DepositosModule,
+    ArmasModule
     ],
   providers: [],
   bootstrap: [AppComponent]

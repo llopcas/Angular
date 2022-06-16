@@ -3,10 +3,12 @@ import { Deposito } from "./deposito";
 export class DepositoImpl implements Deposito{
 
   codigoDeposito: number = 0;
+  id: any 
   urlDeposito: string = "";
-
-  constructor (codigoDeposito: number){
+  
+  constructor (codigoDeposito: number , id: any) {
     this.codigoDeposito = codigoDeposito;
+    this.id = id;
    
   }
   

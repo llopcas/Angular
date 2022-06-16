@@ -14,7 +14,7 @@ import { DepositoImpl } from '../models/deposito-impl';
 export class DepositoService {
 
   private host: string = environment.host;
-  private urlEndPoint: string = `${this.host}usuarios`;
+  private urlEndPoint: string = `${this.host}depositos`;
 
   constructor(
   private http: HttpClient,
@@ -36,7 +36,8 @@ export class DepositoService {
   }
 
   mapearDeposito(depositoApi: any): DepositoImpl {
-  return new DepositoImpl(depositoApi.codigoDeposito);
+    
+  return new DepositoImpl(depositoApi.codigoDeposito, depositoApi.id);
   }
 
   create(deposito: Deposito): void {

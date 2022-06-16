@@ -8,7 +8,7 @@ import { DepositoImpl } from '../../models/deposito-impl';
   styleUrls: ['./deposito.component.css']
 })
 export class DepositoComponent implements OnInit {
-  @Input() deposito: Deposito = new DepositoImpl(0);
+  @Input() deposito: Deposito = new DepositoImpl(0, 0);
 	@Output() depositoEliminar = new EventEmitter<Deposito>()
   constructor() { }
 
