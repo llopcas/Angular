@@ -9,12 +9,12 @@ export class DepositoImpl implements Deposito{
   constructor (codigoDeposito: number , id: any) {
     this.codigoDeposito = codigoDeposito;
     this.id = id;
-   
+  
   }
   
   getIdDeposito(url: string): string {
-	  url = url.slice(0, url.length - 1)
-	  return url.slice(url.lastIndexOf('/') + 1, url.length);
+	url = url.slice(0, url.length - 1)
+	return url.slice(url.lastIndexOf('/') + 1, url.length);
 	}
 
 }

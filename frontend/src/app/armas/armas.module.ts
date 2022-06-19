@@ -32,7 +32,7 @@ import { FuegoComponent } from './fuego/fuego.component';
   imports: [
     CommonModule, FormsModule,ReactiveFormsModule,
     ArmasRoutingModule,
-   
+
   ],
   providers: [AuxiliarService]
 })
