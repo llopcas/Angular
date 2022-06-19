@@ -9,8 +9,8 @@ export class BlancaImpl  extends ArmaImpl
   longitudEnMilimetos: number;
 
 
-constructor(nombre: string, peso: number, id: number, urlArma:string , longitudEnMilimetros: number){
-  super(nombre, peso, id, urlArma);
+constructor(nombre: string, peso: number, tipo: number ,id: number, urlArma:string , longitudEnMilimetros: number){
+  super(nombre, peso, id,tipo,urlArma);
   super.tipo = 1;
   this.longitudEnMilimetos = longitudEnMilimetros;
 }

@@ -17,12 +17,12 @@ export class EdicionArmasComponent implements OnInit {
   public armaForm: FormGroup;
   type: number = 0;
   id: number = 0;
-  blancaService: any;
+  
 
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private fuegoService: FuegoService,
-    private jardineriaService: BlancaService) {
+    private blancaService: BlancaService) {
       this.armaForm = this.formBuilder.group({
         name: ['', Validators.required],
         price: ['', Validators.required],
@@ -89,6 +89,7 @@ export class EdicionArmasComponent implements OnInit {
           armaEntity.name,
           armaEntity.mass,
           0,
+          0,
           armaEntity.url,
           armaEntity.sistemaAccion ,
           armaEntity.calibreEnMilimetros );
@@ -105,6 +106,7 @@ export class EdicionArmasComponent implements OnInit {
         const sjar: BlancaImpl = new BlancaImpl(
           armaEntity.name,
           armaEntity.mass,
+          0,
           0,
           armaEntity.url,
           armaEntity.longitudEnMilimetros,

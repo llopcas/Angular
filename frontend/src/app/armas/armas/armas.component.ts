@@ -13,8 +13,8 @@ import { FuegoService } from '../service/fuego.service';
 })
 export class ArmasComponent implements OnInit {
   todosArmas: ArmaImpl[] = [];
-  public fuego: FuegoImpl = new FuegoImpl('', 0, 0, '', '', 0);
-  public blanca: BlancaImpl = new BlancaImpl('', 0, 0, '', 0);
+  public fuego: FuegoImpl = new FuegoImpl('', 0, 0, 0,'', '', 0);
+  public blanca: BlancaImpl = new BlancaImpl('', 0, 0, 0,'', 0);
   constructor( 
     private blancaService: BlancaService,
     private fuegoService: FuegoService,
@@ -48,8 +48,8 @@ export class ArmasComponent implements OnInit {
         .deleteFuego(arma.id)
         .subscribe((response) => {
           //this.router.navigate(['servicios']);
-         /* this.geriatria = this.geriatria.filter(
-            (m: ServicioImpl) => servicio !== m
+         /* this.fuego = this.fuego.filter(
+            (m: FuegoImpl) => fuego !== m
           );*/
           this.getTodosArmas();
         });

@@ -8,10 +8,10 @@ export class FuegoImpl extends ArmaImpl  {
   sistemaAccion: string;
   calibreEnMilimetros: number;
 
-  constructor(nombre: string, peso: number, id: number , urlArma: string , sistemaAccion: string, calibreEnMilimetros: number){
-    super(nombre, peso, id, urlArma);
+  constructor(nombre: string, peso: number,tipo:number ,id: number , urlArma: string , sistemaAccion: string, calibreEnMilimetros: number){
+    super(nombre, peso, id, tipo ,urlArma);
     super.tipo = 2;
-    this.sistemaAccion=sistemaAccion;
+    this.sistemaAccion = sistemaAccion;
     this.calibreEnMilimetros  = calibreEnMilimetros;
   }
 

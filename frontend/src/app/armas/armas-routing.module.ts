@@ -1,13 +1,14 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NuevoComponent } from '../depositos/depositos/nuevo/nuevo.component';
+import { VerComponent } from '../depositos/depositos/ver/ver.component';
+import { ArmasDepositoComponent } from './armas-deposito/armas-deposito.component';
+import { ArmasFormComponent } from './armas-form/armas-form.component';
 
 import { ArmasComponent } from './armas/armas.component';
-import { BlancaIdComponent } from './armas/blanca/blanca-id/blanca-id.component';
-import { BlancaComponent } from './armas/blanca/blanca.component';
-import { FuegoIdComponent } from './armas/fuego/fuego-id/fuego-id.component';
-import { FuegoComponent } from './armas/fuego/fuego.component';
-import { NuevoComponent } from './armas/nuevo/nuevo.component';
-import { VerComponent } from './armas/ver/ver.component';
+import { BlancaComponent } from './blanca/blanca.component';
+import { EdicionArmasComponent } from './edicion-armas/edicion-armas.component';
+import { FuegoComponent } from './fuego/fuego.component';
 
 const routes: Routes = [
   {
@@ -19,22 +20,31 @@ const routes: Routes = [
       },
       {
         path: 'ver', component: VerComponent
-      },
-  
-      {
-        path: 'fuego', component: FuegoComponent
-      },
-      {
-        path: 'fuego/:Idfuego', component: FuegoIdComponent
-      },
-      {
-      path: 'blanca', component: BlancaComponent
+      }
+    ]
     },
     {
-      path: 'blanca/:Idblanca', component: BlancaIdComponent
-    }
-  ]
-   }
+      path: 'armas-form',
+      component: ArmasFormComponent,
+    },
+    {
+      path: 'edicion-armas/:id/:type',
+      component: EdicionArmasComponent,
+    },
+    {
+      path:'fuegos/:id',
+      component:FuegoComponent
+    },
+    {
+      path: 'blancas/:id',
+      component:BlancaComponent
+    },
+  
+  
+    {
+      path: 'armas-deposito/:id',
+      component: ArmasDepositoComponent,
+    },
   ]; 
 
 @NgModule({

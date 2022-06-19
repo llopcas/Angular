@@ -1,14 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {
-  faEraser,
-  faEye,
-  faFilePen,
-  faPencil,
-  faTrash,
-  faTrashCan,
-  faX,
-} from '@fortawesome/free-solid-svg-icons';
+
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
 import { ArmaImpl } from '../models/arma-impl';
 import { ArmaService } from '../service/arma.service';
@@ -26,16 +18,7 @@ export class ArmasItemComponent implements OnInit {
   @Output() armaSeleccionado = new EventEmitter<ArmaImpl>();
   @Output() armaEliminar = new EventEmitter<ArmaImpl>();
   @Output() armaEditar = new EventEmitter<ArmaImpl>();
-
-
-  pencil = faPencil;
-  mirar = faEye;
-  trash = faTrashCan;
-  eraser = faEraser;
-  trash2 = faTrash;
-  x = faX;
-  modificar = faFilePen;
-
+  
   constructor(
     private armaService: ArmaService,
     private auxService: AuxiliarService,

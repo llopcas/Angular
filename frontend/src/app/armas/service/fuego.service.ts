@@ -41,7 +41,8 @@ export class FuegoService {
     return new FuegoImpl(
       fuegoApi.nombre,
       fuegoApi.peso,
-      id,
+      0,
+      0,
       fuegoApi.urlArma,
       fuegoApi.sistemaAccion,
       fuegoApi.calibreEnMilimetros,

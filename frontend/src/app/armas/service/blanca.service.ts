@@ -43,7 +43,8 @@ export class BlancaService {
     return new BlancaImpl(
       blancaAPI.nombre,
       blancaAPI.peso,
-      id,
+      0,
+      0,
       blancaAPI.urlArma,
       blancaAPI.longitudEnMetros,
     );

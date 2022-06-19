@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NgModel, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgModel, Validators, NgForm } from '@angular/forms';
 import { ArmaImpl } from '../models/arma-impl';
 import { BlancaImpl } from '../models/blanca-impl';
 import { FuegoImpl } from '../models/fuego-impl';
 import { Tipo } from '../models/tipo';
 import { BlancaService } from '../service/blanca.service';
 import { FuegoService } from '../service/fuego.service';
+
 
 @Component({
   selector: 'app-armas-form',
@@ -52,9 +53,10 @@ export class ArmasFormComponent implements OnInit {
           armaEntity.name,
           armaEntity.mass,
           0,
+          0,
           armaEntity.url,
           armaEntity.sistemaAccion ,
-          armaEntity.calibreEnMilimetros, );
+          armaEntity.calibreEnMilimetros );
           this.fuegoService.create(sger).subscribe(
             () => {
               console.log('OK');
@@ -67,6 +69,7 @@ export class ArmasFormComponent implements OnInit {
         const sjar: BlancaImpl = new BlancaImpl(
           armaEntity.name,
           armaEntity.mass,
+          0,
           0,
           armaEntity.url,
           armaEntity.longitudEnMilimetros
@@ -93,7 +96,7 @@ export class ArmasFormComponent implements OnInit {
         type: [this.armaForm.value.type, Validators.required],
         name: [this.armaForm.value.name, Validators.required],
         mass: [this.armaForm.value.mass, Validators.required],
-       longitusEnMilimetros: [''],
+        longitusEnMilimetros: [''],
         sistemaAccion: [this.armaForm.value.sistemaAccion,Validators.required],
         calibreEnMilimetros: [this.armaForm.value.calibreEnMilimetros,Validators.required ],
       });
@@ -153,3 +156,5 @@ export class ArmasFormComponent implements OnInit {
     this.message = res.message;
   }*/
 }
+
+

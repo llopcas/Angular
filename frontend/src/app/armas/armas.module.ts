@@ -4,14 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { AuxiliarService } from '../service/auxiliar.service';
 import { ArmasRoutingModule } from './armas-routing.module';
 import { ArmasComponent } from './armas/armas.component';
-import { BlancaIdComponent } from './armas/blanca/blanca-id/blanca-id.component';
-import { BlancaComponent } from './armas/blanca/blanca.component';
-import { FuegoIdComponent } from './armas/fuego/fuego-id/fuego-id.component';
-import { FuegoComponent } from './armas/fuego/fuego.component';
-import { NuevoComponent } from './armas/nuevo/nuevo.component';
-import { VerComponent } from './armas/ver/ver.component';
-import { CrearArmasComponent } from './crear-armas/crear-armas.component';
-import { VerTodasArmasComponent } from './ver-todas-armas/ver-todas-armas.component';
+
+import { ArmasDepositoComponent } from './armas-deposito/armas-deposito.component';
+import { ArmasFormComponent } from './armas-form/armas-form.component';
+import { ArmasItemComponent } from './armas-item/armas-item.component';
+import { BlancaItemComponent } from './blanca-item/blanca-item.component';
+import { EdicionArmasComponent } from './edicion-armas/edicion-armas.component';
+import { FuegoItemComponent } from './fuego-item/fuego-item.component';
+import { BlancaComponent } from './blanca/blanca.component';
+import { FuegoComponent } from './fuego/fuego.component';
 
 
 
@@ -19,14 +20,14 @@ import { VerTodasArmasComponent } from './ver-todas-armas/ver-todas-armas.compon
 @NgModule({
   declarations: [
     ArmasComponent,
+    ArmasItemComponent,
     FuegoComponent,
+    FuegoItemComponent,
+    BlancaItemComponent,
     BlancaComponent,
-    FuegoIdComponent,
-    BlancaIdComponent,
-    NuevoComponent,
-    VerComponent,
-    VerTodasArmasComponent,
-    CrearArmasComponent,
+    ArmasFormComponent,
+    ArmasDepositoComponent,
+    EdicionArmasComponent,
   ],
   imports: [
     CommonModule,

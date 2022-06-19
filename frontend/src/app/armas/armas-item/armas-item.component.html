@@ -19,17 +19,19 @@
     </a> -->
 
     <a class="" data-bs-toggle="modal" data-bs-target="#modalVerArma" (click)="armaSeleccionado.emit(arma)" (click)="obtenerArma()">
-      &nbsp;<fa-icon class=" fa-2x" [icon]="mirar"></fa-icon>&nbsp;
+      &nbsp;<i class="fa-solid fa-eye"></i>
+
+      &nbsp;
     </a>
 
-     <a class="" data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="armaSeleccionado.emit(arma) " routerLink="/armass/edicion-armas/{{arma.id}}/{{arma.tipo}}">
-      &nbsp;<fa-icon class=" fa-2x" [icon]="modificar"></fa-icon>&nbsp;
+    <a class="" data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="armaSeleccionado.emit(arma) " routerLink="/armass/edicion-armas/{{arma.id}}/{{arma.tipo}}">
+      &nbsp;<i class="fa-solid fa-pen"></i>&nbsp;
     </a>
 
 
     <a class="btn btn-link"  type="button" (click)="borrarArma(arma.id)" routerLink="/armas" >
       &nbsp;&nbsp;
-      <fa-icon class=" fa-2x" [icon]="trash"></fa-icon>
+      <i class= "fa-thin fa-trash" ></i>
       &nbsp;
     </a>
 

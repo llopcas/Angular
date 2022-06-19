@@ -6,12 +6,12 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ArmaFuegoService {
+export class ArmaDepositoService {
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}armas/`;
   constructor(private http: HttpClient) { }
 
-  getArmaFuego(id: string): Observable<any> {
+  getArmaDeposito(id: string): Observable<any> {
     return this.http.get<any>(`${this.urlEndPoint}${id}`);
   }
 }

@@ -36,6 +36,7 @@ private urlEndPoint: string = `${this.host}armas`;
     return new ArmaImpl(
       armaApi.nombre,
       armaApi.peso,
+      0,
       armaApi.id,
       armaApi._links.self.href
      );
