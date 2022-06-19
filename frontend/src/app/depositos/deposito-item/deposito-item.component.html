@@ -2,7 +2,16 @@
   <hr class='w-100'>
   <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3"><a class="" data-toggle="modal"
     data-target="#modalDeposito" (click)='depositoSeleccionado.emit(deposito)'>{{deposito.codigoDeposito}}</a></div>
-  <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2">
+  
   </div>
-</div>
+  <button class="btn btn-info" routerLink="/armas/armas-deposito/{{deposito.id}}">Armas</button>
+
+
+  <a class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="depositoSeleccionado.emit(deposito) "
+ routerLink="/depositos/depostio-edicion/{{deposito.id}}">
+  &nbsp;<i class="fa-solid fa-pencil"></i>
+
+  &nbsp;
+</a>
+
 

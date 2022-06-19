@@ -50,8 +50,8 @@ export class DepositoService {
   postDeposito(deposito: DepositoImpl){
     this.http.post(this.urlEndPoint, deposito).subscribe();
   }
-  update(empl: DepositoImpl, id: number) : Observable<any>  {
-    return this.http.put<any>(`${this.urlEndPoint}/${id}`, empl);
+  update(dep: DepositoImpl, id: number) : Observable<any>  {
+    return this.http.put<any>(`${this.urlEndPoint}/${id}`, dep);
   }
 
   deleteDeposito(codigoDepositoEliminar: string){

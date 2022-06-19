@@ -9,7 +9,7 @@ export class NuevoComponent implements OnInit {
 
   public deposito = {
     
-   codigoDeposito:0,
+   codigoDeposito:0
   }
 
  

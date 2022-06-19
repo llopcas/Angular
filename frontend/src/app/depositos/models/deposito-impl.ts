@@ -4,8 +4,8 @@ export class DepositoImpl implements Deposito{
 
   codigoDeposito:any;
   id: any 
-  urlDeposito: string = "";
-  
+  urlDeposito: any;
+
   constructor (codigoDeposito: number , id: any) {
     this.codigoDeposito = codigoDeposito;
     this.id = id;

@@ -13,8 +13,9 @@ import { DepositoService } from '../service/deposito.service';
 export class DepositosComponent implements OnInit {
   depositos: Deposito[] = [];
   todosDepositos: Deposito[] = [];
-  depositoVerDatos: Deposito = new DepositoImpl(0, 0);
+  depositoVerDatos: Deposito = new DepositoImpl(0, '');
   numPaginas: number = 0;
+  
   constructor(
   private depositoService: DepositoService,
   private auxService: AuxiliarService,
@@ -28,11 +29,13 @@ export class DepositosComponent implements OnInit {
   verDatos(deposito: Deposito): void {
     this.depositoVerDatos = deposito;
   }
-  onDepositoEliminar(deposito: Deposito): void {
+  onDepositoEliminar(deposito: DepositoImpl): void {
     console.log(`He eliminado a ${deposito.codigoDeposito}`);
-    
-    this.depositos = this.depositos.filter(u => deposito !== u);
-  }
+  //   this.depositoService.deleteDeposito(deposito.id).subscribe(response => {
+  //     this.getTodosDepositos();
+  // });
+}
+  
   getTodosDepositos(): void {
     this.depositoService.getDepositos().subscribe((r) => {
       this.numPaginas = this.auxService.getPaginasResponse(r);
@@ -45,11 +48,19 @@ export class DepositosComponent implements OnInit {
       }
     });
   }
-  borrarDeposito(id: string): void {
-    this.depositoService.deleteDeposito(id)
-  }
-  modificarUsuario(deposito: DepositoImpl): void {
-    this.depositoService.patchDeposito(deposito).subscribe();
-  }
+  
+  onArmaEliminar(deposito: DepositoImpl) {
+
+    // this.depositoService
+    //   .deleteDeposito(deposito.id)
+    //   .subscribe((response) => {
+    //     //this.router.navigate(['servicios']);
+    //    /* this.geriatria = this.geriatria.filter(
+    //       (m: ServicioImpl) => servicio !== m
+    //     );*/
+    //     this.getTodosDepositos();
+    //   });
+
+}
 
 }

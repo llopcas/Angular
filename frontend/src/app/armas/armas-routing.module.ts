@@ -1,8 +1,8 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NuevoComponent } from '../depositos/depositos/nuevo/nuevo.component';
-import { VerComponent } from '../depositos/depositos/ver/ver.component';
 import { ArmasDepositoComponent } from './armas-deposito/armas-deposito.component';
+import { ArItemComponent } from './armas-deposito/se-item/ar-item.component';
 import { ArmasFormComponent } from './armas-form/armas-form.component';
 
 import { ArmasComponent } from './armas/armas.component';
@@ -14,14 +14,8 @@ const routes: Routes = [
   {
     path: '' ,
     component: ArmasComponent,
-    children: [
-      {
-        path: 'nuevo', component: NuevoComponent
-      },
-      {
-        path: 'ver', component: VerComponent
-      }
-    ]
+    
+     
     },
     {
       path: 'armas-form',
@@ -44,6 +38,15 @@ const routes: Routes = [
     {
       path: 'armas-deposito/:id',
       component: ArmasDepositoComponent,
+    }, 
+    {
+      path: 'armas-deposito/:id',
+      component: ArmasDepositoComponent,
+      children: [
+        {
+          path: 'arma-item', component: ArItemComponent
+        }
+      ]
     },
   ]; 
 
