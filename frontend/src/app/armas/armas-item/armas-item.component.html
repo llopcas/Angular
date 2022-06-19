@@ -1,0 +1,64 @@
+
+
+<div class="row col-md-5 "  (ngSubmit)="onSubmit()">
+  <hr class="w-100 " />
+
+  <div class="col-md-3">
+    {{ arma.nombre }}
+  </div>
+  <div class="col-md-3">
+    {{ arma.peso }}
+  </div>
+  <div class="col-md-3">
+
+  </div>
+
+  <!-- <div class="col-sm-4">
+    <a class="" data-bs-toggle="modal" data-bs-target="#modalArma" (click)="armaSeleccionado.emit(arma)"  >
+      &nbsp;<fa-icon class=" fa-2x" [icon]="eye"></fa-icon>&nbsp;
+    </a> -->
+
+    <a class="" data-bs-toggle="modal" data-bs-target="#modalVerArma" (click)="armaSeleccionado.emit(arma)" (click)="obtenerArma()">
+      &nbsp;<fa-icon class=" fa-2x" [icon]="mirar"></fa-icon>&nbsp;
+    </a>
+
+     <a class="" data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="armaSeleccionado.emit(arma) " routerLink="/armass/edicion-armas/{{arma.id}}/{{arma.tipo}}">
+      &nbsp;<fa-icon class=" fa-2x" [icon]="modificar"></fa-icon>&nbsp;
+    </a>
+
+
+    <a class="btn btn-link"  type="button" (click)="borrarArma(arma.id)" routerLink="/armas" >
+      &nbsp;&nbsp;
+      <fa-icon class=" fa-2x" [icon]="trash"></fa-icon>
+      &nbsp;
+    </a>
+
+  </div>
+
+    <!-- <a data-bs-toggle="modal" data-bs-target="#modalBorrar">
+      &nbsp;<fa-icon [icon]="x"></fa-icon>&nbsp;
+    </a>
+
+    <div class="modal fade" id="modalBorrar" tabindex="-1" aria-labelledby="modalParaBorrar" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalParaBorrar" >Borrar arma</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ¿Seguro que lo quiere borrar?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+            <button role="button" type="button" class="btn btn-primary" (click)="borrarArma(this.arma.urlArma)">ELIMINAR</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- Con este MODAL me borra el último que ha pillado, hace lo mismo que el otro modal -->
+
+
+
+
+

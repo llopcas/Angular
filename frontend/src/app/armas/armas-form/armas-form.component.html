@@ -1,0 +1,81 @@
+<body>
+  <h3>ARMAS</h3>
+  <br />
+  <form [formGroup]="armaForm" (ngSubmit)="onSubmit()">
+    <div class="form-group col-md-3">
+      <select
+        class="form-control"
+        formControlName="type"
+        (change)="cambiaTipo($event)"
+      >
+        <option *ngFor="let elemento of tipos" [value]="elemento.id">
+          <span>{{ elemento.description }}</span>
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label>Nombre</label>
+      <input
+        type="text"
+        formControlName="name"
+        class="form-control"
+        placeholder="Nombre"
+       />
+ 
+    </div>
+    <div class="form-group col-md-3">
+      <label>Peso</label>
+      <input
+        type="number"
+        formControlName="mass"
+        class="form-control"
+        placeholder="En g"
+      />
+    </div>
+    <div class="form-group col-md-3" *ngIf="armaForm && armaForm.value.type == 1">
+      <section>
+        <div class="">
+          <label for="materialPropio">Longitud Hoja &nbsp; </label>
+          <section class="form-control">
+            <input
+              type="text"
+              formControlName="longitudEnMilimetros"
+              class="form-control"
+              placeholder="En mm"/>
+        <app-blanca></app-blanca>
+      </section></div>
+
+      <div *ngIf="armaForm && armaForm.value.type == 2">
+        <div class="form-group col-md-3">
+          <label>Calibre en Milimetros</label>
+          <input
+            type="number"
+            formControlName="calibreEnMilimetros"
+            class="form-control"
+            placeholder="calibre"
+          />
+        </div>
+        <div class="form-group col-md-3">
+          <label>Sistema de Accion</label>
+          <input
+            type="name"
+            formControlName="sistemaAccion"
+            class="form-control"
+            
+            placeholder="Sistema de Accion"
+          />
+        </div>
+      </div>
+
+    <section #botones>
+      <button type="reset" class="btn">Borrar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="btn btn-primary">Aceptar</button>
+    </section>
+  </form>
+  geri:{{armaForm && armaForm.value.type == 2}}
+  jar:{{armaForm && armaForm.value.type == 1}}
+
+</body>
+
+
