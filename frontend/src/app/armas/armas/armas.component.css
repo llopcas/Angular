@@ -1,12 +1,13 @@
 
 .button {
   margin: 2em;
+  color: blue;
 }
 
 body{
   text-align: center;
 
-  margin-top: 10%;
+   margin-top: 10%; 
 }
 
 div{

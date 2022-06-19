@@ -1,5 +1,5 @@
 export interface Deposito {
-  codigoDeposito: number;
+  codigoDeposito: any;
   id: number;
   urlDeposito: string;
 }

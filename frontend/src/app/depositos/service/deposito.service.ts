@@ -19,7 +19,10 @@ export class DepositoService {
   constructor(
   private http: HttpClient,
   private auxService: AuxiliarService) { }
-
+  
+  findById(serviceId: any) :Observable<any> {
+    return this.http.get<any>(`${this.urlEndPoint}/${serviceId}`);
+  }
   getDepositos(): Observable<any> {
   return this.http.get<any>(this.urlEndPoint);
   }
@@ -46,6 +49,9 @@ export class DepositoService {
 
   postDeposito(deposito: DepositoImpl){
     this.http.post(this.urlEndPoint, deposito).subscribe();
+  }
+  update(empl: DepositoImpl, id: number) : Observable<any>  {
+    return this.http.put<any>(`${this.urlEndPoint}/${id}`, empl);
   }
 
   deleteDeposito(codigoDepositoEliminar: string){

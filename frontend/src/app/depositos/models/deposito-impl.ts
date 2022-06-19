@@ -2,7 +2,7 @@ import { Deposito } from "./deposito";
 
 export class DepositoImpl implements Deposito{
 
-  codigoDeposito: number = 0;
+  codigoDeposito:any;
   id: any 
   urlDeposito: string = "";
   

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuxiliarService } from '../service/auxiliar.service';
 import { ArmasRoutingModule } from './armas-routing.module';
 import { ArmasComponent } from './armas/armas.component';
@@ -30,9 +30,9 @@ import { FuegoComponent } from './fuego/fuego.component';
     EdicionArmasComponent,
   ],
   imports: [
-    CommonModule,
+    CommonModule, FormsModule,ReactiveFormsModule,
     ArmasRoutingModule,
-    FormsModule
+   
   ],
   providers: [AuxiliarService]
 })

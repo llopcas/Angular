@@ -1,4 +1,4 @@
- <!-- <body>
+  <body>
   <h3>Armas</h3>
   <br />
   <form [formGroup]="armaForm" (ngSubmit)="onSubmit()">
@@ -15,7 +15,7 @@
   <!--    <div *ngIf="f.get('name').invalid && (f.get('name').dirty || f.get('name').touched || submit)" class="error">
         El nombre es obligatorio
     </div> -->
-    <!-- </div>
+     </div>
     <div class="form-group col-md-3">
       <label>Peso</label>
       <input
@@ -65,9 +65,10 @@
       <button class="btn btn-primary">Aceptar</button>
     </section>
   </form>
+  <div hidden>
   geri:{{armaForm && armaForm.value.type == 2}}
   jar:{{armaForm && armaForm.value.type == 1}}
-
-</body> -->
+</div>
+</body> 
 
 
