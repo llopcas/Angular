@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, RouteConfigLoadEnd } from '@angular/router';
 import { BlancaImpl } from '../models/blanca-impl';
 import { FuegoImpl } from '../models/fuego-impl';
+import { FuegoService } from '../service/fuegoiservice';
 import { BlancaService } from '../service/blanca.service';
-import { FuegoService } from '../service/fuego.service';
 
 
 @Component({
@@ -17,7 +17,6 @@ export class EdicionArmasComponent implements OnInit {
   public armaForm: FormGroup;
   type: number = 0;
   id: number = 0;
-  
 
   constructor(private route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -25,7 +24,7 @@ export class EdicionArmasComponent implements OnInit {
     private blancaService: BlancaService) {
       this.armaForm = this.formBuilder.group({
         name: ['', Validators.required],
-        price: ['', Validators.required],
+        mass: ['', Validators.required],
         longitudEnMilimetros: [''],
         calibreEnMilimetros: [''],
         sistemaAccion: ['' ],
@@ -49,7 +48,7 @@ export class EdicionArmasComponent implements OnInit {
         this.armaForm = this.formBuilder.group({
           name: [service.nombre, Validators.required],
           mass: [service.peso, Validators.required],
-          calibreEnMilimetros: [service.calibreMilimetros, Validators.required],
+          calibreEnMilimetros: [service.calibreEnMilimetros, Validators.required],
           sistemaAccion: [service.sistemaAccion,Validators.required ],
         });
       },
@@ -60,17 +59,17 @@ export class EdicionArmasComponent implements OnInit {
 
 
       this.blancaService.findById(this.id).subscribe(
-        (service: { nombre: any; peso: any; longitudEnMilimetros: { toString: () => any; }; })=>{
+        (service)=>{
           debugger;
           console.log(service);
 
           this.armaForm = this.formBuilder.group({
             name: [service.nombre, Validators.required],
             mass: [service.peso, Validators.required],
-            longitudEnMilimetros: [service.longitudEnMilimetros.toString() , Validators.required],
+            longitudEnMilimetros: [service.longitudEnMilimetros , Validators.required],
           });
         },
-       (error: any)=> {
+       (error)=> {
         console.error(error);
        });
     }
@@ -79,20 +78,20 @@ export class EdicionArmasComponent implements OnInit {
   public onSubmit() {
     debugger;
 
-    const armaEntity = this.armaForm.value;
+    const servicioEntity = this.armaForm.value;
     debugger;
-    if (confirm('Realmente quiere añadir un nuevo elemento')){
+    if (confirm('¿Realmente quiere modificar el Arma?')){
       debugger;
     if (!this.armaForm.invalid) {
       if (this.type == 2) {
         const sger: FuegoImpl = new FuegoImpl(
-          armaEntity.name,
-          armaEntity.mass,
+          servicioEntity.name,
+          servicioEntity.mass,
           0,
-          0,
-          armaEntity.url,
-          armaEntity.sistemaAccion ,
-          armaEntity.calibreEnMilimetros );
+          servicioEntity.deposito,
+          servicioEntity.url,
+          servicioEntity.sistemaAccion ,
+          servicioEntity.calibreEnMilimetros, );
           this.fuegoService.update(sger,this.id ).subscribe(
             () => {
               debugger;
@@ -104,19 +103,19 @@ export class EdicionArmasComponent implements OnInit {
           );
       } else {
         const sjar: BlancaImpl = new BlancaImpl(
-          armaEntity.name,
-          armaEntity.mass,
+          servicioEntity.name,
+          servicioEntity.mass,
           0,
-          0,
-          armaEntity.url,
-          armaEntity.longitudEnMilimetros,
+          servicioEntity.deposito,
+          servicioEntity.url,
+          servicioEntity.longitudEnMilimetros
         );
         this.blancaService.update(sjar, this.id).subscribe(
           () => {
             debugger;
             console.log('OK');
           },
-          (error: any) => {
+          (error) => {
             console.error(error);
           }
         );

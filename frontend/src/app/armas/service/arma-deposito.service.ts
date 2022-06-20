@@ -6,9 +6,9 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ArmaDepositoService {
+export class ArmasDepositoService {
   private host: string = environment.host;
-  private urlEndPoint: string = `${this.host}armas/`;
+  private urlEndPoint: string = `${this.host}depositos/`;
   constructor(private http: HttpClient) { }
 
   getArmaDeposito(id: string): Observable<any> {

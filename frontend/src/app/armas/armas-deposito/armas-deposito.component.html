@@ -1,1 +1,28 @@
+<router-outlet></router-outlet>
+<header>
+  <a routerLink="/armas" class="button">Ver Armas</a>
+  <a routerLink="/armas/armas-form" class="button">Añadir nuevo Arma</a>
+  </header>
+  <body>
+<router-outlet></router-outlet>
+
+<div class="row col-md-5">
+  <div class="row">
+  <div class="col-5 col-sm-5 col-md-2 col-lg-3 col-xl-3">ARMA</div>
+  <div class="col-md-3">&nbsp;&nbsp;&nbsp;&nbsp;PESO</div>
+  </div>
+  <div class="row" *ngIf="arma.tipo==1">
+  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">Longitud</div>
+  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3"> </div>
+</div>
+<div class="row" *ngIf="arma.tipo==2">
+  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">Calibre</div>
+  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">Sistema</div>
+</div>
+
+</div>
+
+<div *ngFor="let arma of todosArmas">
+  <app-armas-item [arma]="arma"  ></app-armas-item>
+</div>
 

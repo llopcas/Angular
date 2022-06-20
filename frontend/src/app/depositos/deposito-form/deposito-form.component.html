@@ -1,36 +1,38 @@
 <form #depositoForm="ngForm">
   <div class="form-row py-2">
     <div class="col-lg-4 col-md-12">
-      <label>Codigo de Deposito <sup class="text-danger">*</sup></label>
+      <label>Codigo de Deposito<sup class="text-danger">*</sup></label>
       <input
         type="text"
         class="form-control"
         [(ngModel)]="deposito.codigoDeposito"
-        placeholder="Introduzca el Codigo de Deposito"
-        name="codigoDeposito"
+        placeholder="Codigo de Deposito"
+        name="nif"
         required
         minlength="8"
         maxlength="8"
-        #codigoDeposito="ngModel"
+        #nif="ngModel"
         [ngClass]="{
-          'is-invalid': codigoDeposito.invalid && (codigoDeposito.dirty || codigoDeposito.touched),
-          'is-valid': !codigoDeposito.invalid
+          'is-invalid': nif.invalid && (nif.dirty || nif.touched),
+          'is-valid': !nif.invalid
         }"
       />
       <div
         class="text-danger"
-        *ngIf="codigoDeposito.invalid && (codigoDeposito.dirty || codigoDeposito.touched)"
+        *ngIf="nif.invalid && (nif.dirty || nif.touched)"
       >
-        <div *ngIf="codigoDeposito.errors?.['required']">
-          El Codigo de Deposito es obligatorio
+        <div *ngIf="nif.errors?.['required']">
+          El DNI del usuario es obligatorio
         </div>
-        <div *ngIf="codigoDeposito.errors?.['minlength']">
-          El Codigo de Deposito debe tener 8 caracteres
+        <div *ngIf="nif.errors?.['minlength']">
+          El Codigo debe de tener 8 caracteres
         </div>
       </div>
     </div>
   </div>
-      <div class="form-row justify-content-between pt-5">
+
+     
+    <div class="form-row justify-content-between pt-5">
       <div class="col-lg-5 col-md-12">
         <button
           class="btn btn-primary"
@@ -39,9 +41,8 @@
           routerLink="/depositos"
           [disabled]="!depositoForm.valid"
         >
-          Crear Deposito
+          Crear Usuario
         </button>
       </div>
     </div>
   </form>
-

@@ -12,7 +12,6 @@ import { FuegoImpl } from '../models/fuego-impl';
 })
 export class FuegoService {
 
-
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}fuegos`;
 
@@ -41,11 +40,11 @@ export class FuegoService {
     return new FuegoImpl(
       fuegoApi.nombre,
       fuegoApi.peso,
-      0,
-      0,
+      id,
+      url,
       fuegoApi.urlArma,
       fuegoApi.sistemaAccion,
-      fuegoApi.calibreEnMilimetros,
+      fuegoApi.calibreEnMilimetros
     );
   }
 
@@ -55,8 +54,8 @@ export class FuegoService {
     debugger;
     return this.http.post<any>(url, arma);
   }
-  update(sger: FuegoImpl, id: number) : Observable<any>  {
-    return this.http.put<any>(`${this.urlEndPoint}/${id}`, sger);
+  update(fue: FuegoImpl, id: number) : Observable<any>  {
+    return this.http.put<any>(`${this.urlEndPoint}/${id}`, fue);
   }
 
   deleteFuego(id: number): Observable<any>{

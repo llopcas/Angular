@@ -1,10 +1,18 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import {
+  faEraser,
+  faEye,
+  faFilePen,
+  faPencil,
+  faTrash,
+  faTrashCan,
+  faX,
+} from '@fortawesome/free-solid-svg-icons';
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
 import { ArmaImpl } from '../models/arma-impl';
 import { ArmaService } from '../service/arma.service';
-;
+
 
 
 @Component({
@@ -13,20 +21,30 @@ import { ArmaService } from '../service/arma.service';
   styleUrls: ['./armas-item.component.css'],
 })
 export class ArmasItemComponent implements OnInit {
-@Input() arma: ArmaImpl = new ArmaImpl(' ', 0, 0,0,'');
+@Input() arma: any;
 
   @Output() armaSeleccionado = new EventEmitter<ArmaImpl>();
   @Output() armaEliminar = new EventEmitter<ArmaImpl>();
   @Output() armaEditar = new EventEmitter<ArmaImpl>();
-  
+
+
+  pencil = faPencil;
+  mirar = faEye;
+  trash = faTrashCan;
+  eraser = faEraser;
+  trash2 = faTrash;
+  x = faX;
+  modificar = faFilePen;
+
   constructor(
     private armaService: ArmaService,
-    private auxService: AuxiliarService,
-    private activateRoute: ActivatedRoute,
-    private router: Router,
+    // private auxService: AuxiliarService,
+    // private activateRoute: ActivatedRoute,
+    // private router: Router,
   ) {}
 
   ngOnInit(): void {
+    console.log(this.arma);
     debugger;
   }
 
@@ -37,7 +55,7 @@ export class ArmasItemComponent implements OnInit {
   }
 
   borrarArma(arma: ArmaImpl["id"]): void {
-    //    this.armaService.deleteArma(this.armaItem.urlArma);
+    //    this.negocioService.deleteNegocio(this.negocioItem.urlNegocio);
     if (confirm('Confirme para eliminar')){
     this.armaEliminar.emit(this.arma);
 
@@ -45,7 +63,7 @@ export class ArmasItemComponent implements OnInit {
   }
 }
 obtenerArma(){
- // return this.armaService.getDatosArma(String.valueOf(this.arma.tipo));
+ this.armaSeleccionado.emit(this.arma);
 }
 
 

@@ -1,29 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+import { AuxiliarService } from 'src/app/service/auxiliar.service';
 import { Router } from '@angular/router';
-import { ArmaImpl } from '../models/arma-impl';
+import { HttpClient } from '@angular/common/http';
+
+
+import { ArmaImpl,  } from '../models/arma-impl';
 import { BlancaImpl } from '../models/blanca-impl';
 import { FuegoImpl } from '../models/fuego-impl';
+import { FuegoService } from '../service/fuegoiservice';
 import { BlancaService } from '../service/blanca.service';
-import { FuegoService } from '../service/fuego.service';
+
 
 @Component({
   selector: 'app-armas',
   templateUrl: './armas.component.html',
-  styleUrls: ['./armas.component.css']
+  styleUrls: ['./armas.component.css'],
 })
 export class ArmasComponent implements OnInit {
   todosArmas: ArmaImpl[] = [];
-  public fuego: FuegoImpl = new FuegoImpl('', 0, 0, 0,'', '', 0);
-  public blanca: BlancaImpl = new BlancaImpl('', 0, 0, 0,'', 0);
-  constructor( 
-    private blancaService: BlancaService,
+
+  public fuego: FuegoImpl = new FuegoImpl('', 0, 0, '', '','', 0);
+  public blanca: BlancaImpl = new BlancaImpl('', 0, 0, '','', 0);
+
+  constructor(
     private fuegoService: FuegoService,
-    private router: Router) { }
+    private blancaService: BlancaService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     debugger;
     this.getTodosArmas();
   }
+
   getTodosArmas(): void {
     this.todosArmas = [];
     this.fuegoService.getFuego().subscribe((response) => {
@@ -47,24 +57,14 @@ export class ArmasComponent implements OnInit {
       this.fuegoService
         .deleteFuego(arma.id)
         .subscribe((response) => {
-          //this.router.navigate(['servicios']);
-         /* this.fuego = this.fuego.filter(
-            (m: FuegoImpl) => fuego !== m
-          );*/
-          this.getTodosArmas();
+               this.getTodosArmas();
         });
     } else {
       this.blancaService
         .deleteBlanca(arma.id)
         .subscribe((response) => {
-          //this.router.navigate(['armas']);
-          /*this.blanca = this.blanca.filter(
-            (m: ArmaImpl) => arma !== m
-          );*/
-          this.getTodosArmas();
+                  this.getTodosArmas();
         });
     }
   }
-
-
 }

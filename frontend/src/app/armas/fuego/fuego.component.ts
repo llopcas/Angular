@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
-import { FuegoImpl } from '../models/fuego-impl';
-import { FuegoService } from '../service/fuego.service';
+import { FuegoImpl} from '../models/fuego-impl';
+import { FuegoService } from '../service/fuegoiservice';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { FuegoService } from '../service/fuego.service';
 })
 export class FuegoComponent implements OnInit {
   fuegos: FuegoImpl[] = [];
-  todosFuegos: FuegoImpl[] = [];
+  todosFuego: FuegoImpl[] = [];
     numPaginas: number = 0;
 
     constructor(
@@ -32,7 +32,7 @@ export class FuegoComponent implements OnInit {
         for (let index = 1; index <= this.numPaginas; index++) {
           this.fuegoService.getFuegoPagina(index)
             .subscribe(response => {
-              this.todosFuegos.push(...this.fuegoService.extraerFuego(response));
+              this.todosFuego.push(...this.fuegoService.extraerFuego(response));
             });
         }
       });

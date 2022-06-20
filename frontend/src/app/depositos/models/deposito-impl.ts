@@ -1,20 +1,18 @@
-import { Deposito } from "./deposito";
+import { Deposito} from './deposito';
 
-export class DepositoImpl implements Deposito{
+export class DepositoImpl implements Deposito {
+  id: number;
+  codigoDeposito: string;
+  urlDeposito: string;
 
-  codigoDeposito:any;
-  id: any 
-  urlDeposito: any;
-
-  constructor (codigoDeposito: number , id: any) {
-    this.codigoDeposito = codigoDeposito;
+  constructor(
+    id: number,
+    codigoDeposito: any,
+     urlDeposito: any
+  ) {
     this.id = id;
-  
+    this.codigoDeposito = codigoDeposito;
+    this.urlDeposito = urlDeposito;
   }
-  
-  getIdDeposito(url: string): string {
-	url = url.slice(0, url.length - 1)
-	return url.slice(url.lastIndexOf('/') + 1, url.length);
-	}
 
 }

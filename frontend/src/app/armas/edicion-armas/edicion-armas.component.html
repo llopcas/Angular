@@ -1,5 +1,5 @@
-  <body>
-  <h3>Armas</h3>
+<body>
+  <h3>ARMAS</h3>
   <br />
   <form [formGroup]="armaForm" (ngSubmit)="onSubmit()">
 
@@ -11,11 +11,11 @@
         formControlName="name"
         class="form-control"
         placeholder="Nombre"
-       /> -->
+       />
   <!--    <div *ngIf="f.get('name').invalid && (f.get('name').dirty || f.get('name').touched || submit)" class="error">
         El nombre es obligatorio
     </div> -->
-     </div>
+    </div>
     <div class="form-group col-md-3">
       <label>Peso</label>
       <input
@@ -28,20 +28,22 @@
     <div class="form-group col-md-3" *ngIf="type == 1">
       <section>
         <div class="">
-          <label for="longitudEnMilimetros">Longitud en Milimetros &nbsp; </label>
-          <section class="form-control">
-            <input
-              formControlName="longitudEnMilimetros"
-              type="number"
-            />
+          <label>Longitud </label>
+          <input
+            type="number"
+            formControlName="longitudEnMilimetros"
+            class="form-control"
+            placeholder="longitud total"
+          />
+        </div>
           </section>
         </div>
-        <app-blanca></app-blanca>
-      </section></div>
+
+     
 
       <div *ngIf="type == 2">
         <div class="form-group col-md-3">
-          <label>Calibre </label>
+          <label>Calibre</label>
           <input
             type="number"
             formControlName="calibreEnMilimetros"
@@ -50,12 +52,13 @@
           />
         </div>
         <div class="form-group col-md-3">
-          <label>Sistema Accion</label>
+          <label>Sistema</label>
           <input
             type="name"
             formControlName="sistemaAccion"
             class="form-control"
-            placeholder="Sistema Accion"
+            id="precio"
+            placeholder="Sistema"
           />
         </div>
       </div>
@@ -65,10 +68,9 @@
       <button class="btn btn-primary">Aceptar</button>
     </section>
   </form>
-  <div hidden>
-  geri:{{armaForm && armaForm.value.type == 2}}
+ <!----> geri:{{armaForm && armaForm.value.type == 2}}
   jar:{{armaForm && armaForm.value.type == 1}}
-</div>
-</body> 
+
+</body>
 
 

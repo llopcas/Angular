@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home/home.component' ; //añado el componente home y su ruta
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
+   { // muestra la pagina inicial de la aplicacion
+    path : '' ,
+    component : HomeComponent
   }
-];
+ ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -8,7 +8,7 @@ import { FuegoImpl } from '../models/fuego-impl';
   styleUrls: ['./fuego-item.component.css']
 })
 export class FuegoItemComponent implements OnInit {
-  @Input() fuego: FuegoImpl = new FuegoImpl( " ", 0, 0, 0 ,'', "", 0 );
+  @Input() fuego: FuegoImpl = new FuegoImpl( " ", 0, 0,'','', '', 0 );
   constructor() { }
 
   ngOnInit(): void {

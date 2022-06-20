@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Deposito } from '../../models/deposito';
-import { DepositoImpl } from '../../models/deposito-impl';
+
+import { DepositoImpl} from '../../models/deposito-impl';
 
 @Component({
   selector: 'app-deposito',
@@ -8,8 +9,8 @@ import { DepositoImpl } from '../../models/deposito-impl';
   styleUrls: ['./deposito.component.css']
 })
 export class DepositoComponent implements OnInit {
-  @Input() deposito: Deposito = new DepositoImpl(0, 0);
-	@Output() depositoEliminar = new EventEmitter<Deposito>()
+  @Input() deposito: Deposito = new DepositoImpl(0,"","");
+  @Output() depositoEliminar = new EventEmitter<Deposito>();
   constructor() { }
 
   ngOnInit(): void {
@@ -18,4 +19,3 @@ export class DepositoComponent implements OnInit {
     this.depositoEliminar.emit(this.deposito);
   }
 }
-

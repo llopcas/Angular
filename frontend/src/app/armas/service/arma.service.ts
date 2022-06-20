@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 import { AuxiliarService } from 'src/app/service/auxiliar.service';
 import { environment } from 'src/environments/environment';
-import { ArmaImpl } from '../models/arma-impl';
+import { Arma } from '../models/arma';
 
+import { ArmaImpl } from '../models/arma-impl';
 
 
 @Injectable({
@@ -23,42 +25,39 @@ private urlEndPoint: string = `${this.host}armas`;
     return this.http.get<any>(this.urlEndPoint);
   }
 
-  extraerArmas(respuestaApi: any): ArmaImpl[] {
-    const armas: ArmaImpl[] = [];
-    respuestaApi.results.forEach((p: any) => {
-      armas.push(this.mapearArma(p));
-
-    });
-    return armas;
-  }
-
   mapearArma(armaApi: any): ArmaImpl {
+    const urlSelf = armaApi._links.self.href;
+    console.log(urlSelf);
+    const url = urlSelf.split('/');
+	  const id =   parseInt(url[url.length -1]);
+
     return new ArmaImpl(
       armaApi.nombre,
       armaApi.peso,
-      0,
       armaApi.id,
+      armaApi.deposito,
       armaApi._links.self.href
      );
   }
 
-  create(arma: ArmaImpl): void {
-    console.log(`Se ha creado el arma: ${JSON.stringify(arma)}`);
+  create(arma: Arma): void {
+    console.log(`Se ha creado el Arma: ${JSON.stringify(arma)}`);
+  }
+  postArma(arma: ArmaImpl){
+    this.http.post(this.urlEndPoint, arma).subscribe();
   }
 
   getArmasPagina(pagina: number): Observable<any> {
     return this.auxService.getItemsPorPagina(this.urlEndPoint, pagina);
   }
 
-  deleteArma(direccionEliminar: string): Observable<any>{
-    return this.http.delete(direccionEliminar);
+  deleteArma(id: number): Observable<any>{
+    const url = `${this.urlEndPoint}/${id}`;
+    ;
+    return this.http.delete<any>(url);
   }
 
- // Para cargar en modal
- getDatosArma(direccionConsulta: string){
-  this.http.get(direccionConsulta).subscribe();
-}
-
+ 
 //para editar
 patchArma(arma: ArmaImpl) {
   return this.http.patch<any>(`${this.urlEndPoint}/${arma.id}`, arma);

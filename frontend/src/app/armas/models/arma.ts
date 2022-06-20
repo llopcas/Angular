@@ -1,7 +1,9 @@
 export interface Arma {
-  
   nombre: string,
-    peso: number,
-    tipo:number,
-    id: number;
-}
+  peso: number,
+  id: number,
+  tipo:number,
+
+ };
+
+

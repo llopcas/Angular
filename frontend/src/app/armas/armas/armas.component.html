@@ -1,21 +1,22 @@
 
 
-  <body>
-  <a routerLink="/armas" class="button">Ver Armas</a>
-  <a routerLink="/armas/armas-form" class="button">Añadir nueva Arma</a>
- 
-  
-
-
-<div class="row col-md-5">
-  <div class="col-5 col-sm-5 col-md-2 col-lg-3 col-xl-3">NOMBRE</div>
-  <div class="col-md-3">&nbsp;&nbsp;&nbsp;&nbsp;PESO</div>
-  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3"></div>
-  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3"></div>
+<body>
+  <router-outlet></router-outlet>
+  <br><br><br>
+<section>
+  <div class="row col-md-5 ">
+    <div class="col-md-3">
+      Nombre
+    </div>
+    <div class="col-md-9">
+      Peso
+    </div>
+  </div>
+</section>
+<div class="content-armas">
+  <div *ngFor="let arma of todosArmas">
+    <!-- <app-arma-item [arma]="arma" (armaEliminar)="onDepositoEliminar($event)"
+      (armaSeleccionado)="verArma($event)"></app-arma-item> -->
+  </div>
 </div>
-
-<div *ngFor="let arma of todosArmas">
-  <app-armas-item [arma]="arma" (armaEliminar)="onArmaEliminar($event)"></app-armas-item>
-</div>
-  </body>
-<router-outlet></router-outlet>
+</body>

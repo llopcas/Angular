@@ -10,7 +10,7 @@ import { BlancaService } from '../service/blanca.service';
   styleUrls: ['./blanca.component.css']
 })
 export class BlancaComponent implements OnInit {
- blancas: BlancaImpl[] = [];
+  blancas: BlancaImpl[] = [];
   todosBlanca: BlancaImpl[] = [];
     numPaginas: number = 0;
 

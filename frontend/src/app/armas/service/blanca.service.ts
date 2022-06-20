@@ -27,11 +27,10 @@ export class BlancaService {
 
   extraerBlanca(respuestaApi: any): BlancaImpl[] {
     const blanca: BlancaImpl[] = [];
-    debugger;
     respuestaApi._embedded.blancas.forEach((ja: any) => {
       blanca.push(this.mapearBlanca(ja));
     });
-    debugger;
+    
     return blanca;
   }
 
@@ -43,10 +42,10 @@ export class BlancaService {
     return new BlancaImpl(
       blancaAPI.nombre,
       blancaAPI.peso,
-      0,
-      0,
+      id,
+      url,
       blancaAPI.urlArma,
-      blancaAPI.longitudEnMetros,
+      blancaAPI.longitudEnMilimetros,
     );
   }
 
