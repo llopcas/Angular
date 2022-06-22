@@ -1,11 +1,31 @@
-section {
-  padding-top: 10em;
-  font-style: oblique;
-  font-size:larger;
-font-weight: bold;
-text-align: center;
+
+#general{
+
+  background-color:rgb(167, 164, 164);
+
+  align-items: center;
+
 }
-a
-{
+
+#cadaAlmacen{
+  background-color:rgb(142, 142, 142);
+
+  align-items: center;
+}
+.col-sm-3{
+  text-align: center;
+}
+h2 {
+  margin-top: 25%;
+  margin-bottom: 30px;
+ 
+color: rgb(0, 0, 0);
+  font-size: 36px;
+}
+
+p {
+  font-size: 24px;
+}
+.row{
   text-align: center;
 }

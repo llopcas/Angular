@@ -1,0 +1,69 @@
+<main>
+  <div class="container mt-3-auto">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2>Buscar Arma de Fuego</h2>
+    <form class="was-validated">
+
+      <div class="mb-3">
+        <label class="form-label">Sistema:</label>
+        <input type="text" class="form-control" placeholder="p.e. ,Toma de Gases" name="marca" minlength="3" maxlength="20"
+          [(ngModel)]="sistemaAccion" required>
+      </div>
+      <div>
+        <label class="form-label">Calibre:</label>
+        <input type="number" class="form-control" placeholder="p.e., 5.56" name="modelo" minlength="3" min="17"
+          [(ngModel)]="calibreEnMilimetros" required>
+      </div>
+    </form>
+    <div class="row" id="botones">
+      <div class="col-2">
+        <button id="buscarDeposito" type="submit" class="btn btn-primary"
+          (click)="depositosBuscados(sistemaAccion,calibreEnMilimetros)">Buscar</button>
+      </div>
+      <div class="col-2">
+        <button id="cancelar" type="button" class="btn btn-danger" routerLink="/">Cancelar</button>
+      </div>
+    </div>
+    <div class="container-fluid depositos-buscados">
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+          <h1>RESULTADO</h1>
+
+          <div class="col-sm-12"*ngIf="depositos.length >0 ; else elseDepositos">
+            <div *ngFor="let deposito of depositos">
+              <app-depositos-buscados [deposito]="deposito" ></app-depositos-buscados>
+            </div>
+          </div>
+          <a class="btn btn-primary contenido volver" routerLink="/">Volver</a>
+          <ng-template #elseDepositos>
+            <h4 class="card-title">
+              <b>NO HAY ARMAS DE FUEGO CON ESAS CARACTERÍSTICAS</b>
+            </h4>
+          </ng-template>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+
+
+</main>

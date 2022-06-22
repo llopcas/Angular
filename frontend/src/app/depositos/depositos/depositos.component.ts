@@ -1,68 +1,57 @@
 import { Component, OnInit } from '@angular/core';
-import { AuxiliarService } from 'src/app/service/auxiliar.service';
-
 import { Router } from '@angular/router';
+import { faPencil, faEye, faTrashCan} from '@fortawesome/free-solid-svg-icons';
 import { Deposito } from '../models/deposito';
 import { DepositoImpl } from '../models/deposito-impl';
+
 import { DepositoService } from '../service/deposito.service';
-
-
 
 @Component({
   selector: 'app-depositos',
-  templateUrl:'./depositos.component.html',
+  templateUrl: './depositos.component.html',
   styleUrls: ['./depositos.component.css']
 })
 export class DepositosComponent implements OnInit {
+
   depositos: Deposito[] = [];
-  todosDepositos: Deposito[] = [];
-  numPaginas: number = 0;
-  depositoVerDatos: Deposito = new DepositoImpl(0,"","");
+  depositoVerDatos: Deposito= new DepositoImpl();
+
+
 
   constructor(
+    private router: Router,
     private depositoService: DepositoService,
-    private auxService: AuxiliarService,
-    private router:Router) { }
+    ) { }
 
   ngOnInit(): void {
-    this.depositoService.getDepositos().subscribe((response) => this.depositos = this.depositoService.extraerDepositos(response));
-    this.getTodosDepositos();
+    this.depositoService.getDepositos().subscribe((response) =>
+    this.depositos = this.depositoService.extraerDepositos(response));
   }
 
   verDatos(deposito: Deposito): void {
     this.depositoVerDatos = deposito;
   }
 
-  onDepositoEliminar(deposito: Deposito): void {
-    ;
-    console.log(`He eliminado a ${deposito.codigoDeposito}`);
-    this.depositoService.deleteDeposito(deposito.id).subscribe(
-      () => { console.log('usuario eliminado');},
-      (error) => {console.error(error);}
-    )
-    this.depositos = this.depositos.filter(u => deposito !== u);
+  onDepositoEliminar(deposito: Deposito) {
+    console.log(`Ha eliminado el deposito ${deposito.codigoDeposito}`);
+    this.depositoService.deleteDeposito(deposito.idDeposito).subscribe();
+    this.router.navigate(['depositos']);
   }
 
-  getTodosDepositos(): void {
-    this.depositoService.getDepositos().subscribe(r => {
-      this.numPaginas = this.auxService.getPaginasResponse(r);
-      for (let index = 1; index <= this.numPaginas; index++) {
-        this.depositoService.getDepositosPagina(index)
-          .subscribe(response => {
-            this.todosDepositos.push(...this.depositoService.extraerDepositos(response));
-          });
-      }
-    });
-  }
-  borrarDeposito(id: number): void {
-    this.depositoService.deleteDeposito(id);
+  onDepositoEditar(depositos: Deposito){
+    this.verDatos(depositos);
+  let url = `depositos/editar/${depositos.idDeposito}`;
+  this.router.navigate([url])}
+
+  onDepositoConsultar(depositos: Deposito){
+    this.verDatos(depositos);
+    let url = `depositos/consultar/${depositos.idDeposito}`;
+    this.router.navigate([url])
   }
 
-  modificarDeposito(deposito: DepositoImpl): void {
-    this.depositoService.patchDeposito(deposito).subscribe();
-  }
-  
 
-  
+  pencil=faPencil;
+  eye=faEye;
+  trash=faTrashCan;
 
 }

@@ -1,0 +1,24 @@
+<main>
+  <div class="container mt-auto">
+
+    <h3>Armas Depositadas</h3>
+
+    <div *ngFor="let blanca of blancas">
+      <app-blancas-consultar [blanca]="blanca"
+      (blancaConsultar)="onBlancaConsultar($event)">
+      </app-blancas-consultar>
+
+      <pre>{{ blanca | json }}</pre>
+
+    </div>
+
+    <div *ngFor="let fuego of fuegos">
+      <app-fuegos-consultar [fuego]="fuego"
+      (fuegoConsultar)="onFuegoConsultar($event)">
+      </app-fuegos-consultar>
+
+      <pre>{{ fuego | json }}</pre>
+
+    </div>
+  </div>
+</main>

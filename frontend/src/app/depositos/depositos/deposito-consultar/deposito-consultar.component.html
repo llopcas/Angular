@@ -1,0 +1,25 @@
+<body class="d-flex flex-column min-vh-100">
+  <main>
+    <div class="container mt-auto">
+
+      <h2>{{ deposito.codigoDeposito }}</h2>
+
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <form action="/action_page.php" class="was-validated">
+
+            <div class="mb-3 mt-3">
+              <h2> DEPOSITO: {{ deposito.codigoDeposito }}</h2>
+              
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- <pre>{{ deposito | json }}</pre> -->
+    <div>
+      <app-armas-consultar></app-armas-consultar>
+    </div>
+
+    </div>
+  </main>
+</body>

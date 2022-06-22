@@ -1,0 +1,45 @@
+
+<body class="d-flex flex-column min-vh-100">
+  <main>
+      <div class="container mt-auto">
+          <div class="row justify-content-center">
+              <div class="col-8">
+                  <h2>{{fuego.nombre}}</h2>
+                  <form class="was-validated">
+
+                      <div class="mb-3 mt-3">
+                          <label class="form-label">Tipo de Arma:</label>
+                          <input type="text" class="form-control" placeholder="televisor"
+                              name="marcaTelevisor" minlength="3" maxlength="30" readonly>
+                      </div>
+
+                      <div class="mb-3">
+                          <label class="form-label">Nombre:</label>
+                          <input type="text" class="form-control"
+                              name="marcaTelevisor"
+                              [(ngModel)]="fuego.nombre" readonly>
+                      </div>
+
+                      <div class="mb-3">
+                          <label class="form-label">Peso:</label>
+                          <input type="text" class="form-control"
+                              name="modeloTelevisor"
+                              [(ngModel)]="fuego.peso" readonly>
+                      </div>
+                      
+                      <div><label class="form-label">Calibre:</label></div>
+                      <div class="mb-3 input-group">
+                          <input type="text" class="form-control"
+                              [(ngModel)]="fuego.calibreEnMilimetros" readonly>
+                          <span class="input-group-text">€</span>
+                      </div>
+
+
+
+                  </form>
+              </div>
+          </div>
+      </div>
+      <br>         <pre>{{ fuego | json }}</pre>
+  </main>
+</body>

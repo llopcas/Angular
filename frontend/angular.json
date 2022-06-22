@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "285103cc-4f2b-448d-97bd-5696abb0ebb4"
+    "analytics": "f668bbdd-95e9-4ae7-b7c1-d19200cde77b"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -51,14 +51,16 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/_redirects"
+              "src/assets"
             ],
-            "styles" : [ "src/styles.css" ,
-                         "node_modules/bootstrap/dist/css/bootstrap.min.css" ],
-           "scripts" : [ "node_modules/jquery/dist/jquery.slim.min.js" ,
-                         "node_modules/popper.js/dist/umd/popper.min.js" ,
-                  "node_modules/bootstrap/dist/js/bootstrap.min.js" ]
+            "styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.slim.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"]
           },
           "configurations": {
             "production": {

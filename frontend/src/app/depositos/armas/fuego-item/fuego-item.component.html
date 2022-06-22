@@ -1,0 +1,53 @@
+<!-- <main>
+  <div class="container-mt-auto">
+
+  <div class="row mb-2 justify-content-center">
+    <hr class='w-100'>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <li class="list-goup.item">
+      Televisor&nbsp;&nbsp;{{televisor.marca}}, {{televisor.modelo}}, {{televisor.calificacionEnergetica}}, {{televisor.numeroPulgadas}}",
+      {{televisor.precio}} € &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a>
+
+        <fa-icon [icon]="trash" class="fa-2x" (click)="borrarTelevisor()"></fa-icon>
+        &nbsp; &nbsp; &nbsp; &nbsp;
+      </a>
+      <a>
+        <fa-icon [icon]="pencil" class="fa-2x" (click)="modificarTelevisor()"></fa-icon>&nbsp;
+      </a>
+        </li>
+    </div>
+
+  </div>
+  </div>
+</main> -->
+
+<main>
+  <div class="container mt-auto">
+  <div class="row mb-2 justify-content-center">
+    <hr class='w-100'>
+    <div class="col-sm-5">
+      <li class="list-group-item">
+      Fuego &nbsp;&nbsp;  {{fuego.nombre}}, {{fuego.peso}}g, {{fuego.sistemaAccion}}, {{fuego.calibreEnMilimetros}}mm",
+       
+        <!--   <a>
+          <fa-icon [icon]="trash" class="fa-2x" (click)="borrarTelevisor()"></fa-icon>
+          &nbsp;
+        </a>
+        <a>
+         <fa-icon [icon]="pencil"class="fa-2x" (click)="modificarTelevisor()"></fa-icon>&nbsp;
+        </a> -->
+      </li>
+    </div>
+    <div class="col-sm-3">
+     <a>
+        <fa-icon [icon]="trash" class="fa-2x" (click)="borrarFuego()"></fa-icon>
+        &nbsp;
+      </a>
+      <a>
+       <fa-icon [icon]="pencil"class="fa-2x" (click)="modificarFuego()"></fa-icon>&nbsp;
+      </a>
+    </div>
+    </div>
+  </div>
+  </main>

@@ -1,0 +1,59 @@
+
+<main>
+  <br><br><br><br><br><br><br><br>
+
+<section id="datosLavadora" *ngIf="[fuego]">
+  <div class="form-row py-2">
+    <label>Nombre<sup class="text-danger">*</sup></label>
+    <input type="text" class="form-control" [(ngModel)]="fuego.nombre" placeholder="Por ejemplo, HK-G36E"
+     name="prod"
+    required  maxlength="15"/>
+    <div class="invalid-feedback">Por favor, rellene este campo.</div>
+    <div class="valid-feedback">Ok</div>
+  </div>
+  <div class="form-row py-2">
+    <label>Peso<sup class="text-danger">*</sup></label>
+    <input type="text" class="form-control" [(ngModel)]="fuego.peso"
+     placeholder="P. e., 4500g" name="prod2"
+      required minlength="5" maxlength="5" #prod2="ngModel" [ngClass]="{
+        'is-invalid': prod2.invalid && (prod2.dirty || prod2.touched),
+        'is-valid': !prod2.invalid
+      }" />
+    <div class="invalid-feedback">Por favor, rellene este campo.</div>
+    <div class="valid-feedback">ok</div>
+  </div>
+    <div class="form-row py-2">
+    <label>Sistema<sup class="text-danger">*</sup></label>
+    <input type="text" class="form-control" placeholder="Por ejemplo, Toma de Gases" name="sistemaAccion" minlength="2" maxlength="20"
+          [(ngModel)]="fuego.sistemaAccion" required>
+  </div>
+  <div class="form-row py-2">
+    <label>Calibre<sup class="text-danger">*</sup></label>
+    <input type="number" class="form-control" [(ngModel)]="fuego.calibreEnMilimetros" placeholder='P.e., 5.56mm ' name="prod21"
+      required min="3" max="6" #prod21="ngModel" [ngClass]="{
+        'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
+        'is-valid': ! prod21.invalid
+      }" /><span class="input-group-text">mm</span>
+      <div class="text-danger" *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)">
+        <div *ngIf="prod21.errors?.['min']"> El Calibre no puede ser menor que 0</div>
+      </div>
+    <div class="invalid-feedback">Por favor, rellene este campo.</div>
+    <div class="valid-feedback">Ok</div>
+  </div>
+ 
+  <div class="row justify-content-center">
+
+    <div class="col-2">
+      <button id="guardar" type="submit" class="btn btn-primary" (click)="onEditarFuego()"
+        routerLink="/almacenes">Guardar</button>
+    </div>
+
+    <div class="col-2">
+      <a routerLink="/almacenes"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+    </div>
+
+  </div>
+  <br>
+</section>
+<br><br><br><br><br>
+    </main>

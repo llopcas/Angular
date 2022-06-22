@@ -1,0 +1,31 @@
+<main>
+  <div class="container mt-auto">
+      <br>
+      <h3>ARMAS</h3>
+
+      <div *ngFor="let blanca of blancas" id="blancas">
+          <app-blanca-item
+              [blanca]="blanca"
+              (blancaEliminar)="onBlancaEliminar($event)"
+              (blancaEditar)="onBlancaEditar($event)">
+          </app-blanca-item>
+
+
+      </div>
+
+      <div *ngFor="let fuego of fuegos" id="fuegos">
+          <app-fuego-item
+              [fuego]="fuego"
+              (fuegoEliminar)="onFuegoEliminar($event)"
+              (fuegoEditar)="onFuegoEditar($event)">
+          </app-fuego-item>
+
+      </div>
+      <br><br>
+      <br><br>
+      <br><br>
+      <br>
+      <br>
+      <br>
+  </div>
+</main>

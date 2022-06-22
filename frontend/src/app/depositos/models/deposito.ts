@@ -1,5 +1,7 @@
+
 export interface Deposito {
-  id: number;
+
   codigoDeposito: string;
+  idDeposito: string;
   urlDeposito: string;
 }

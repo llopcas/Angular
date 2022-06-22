@@ -1,0 +1,112 @@
+<body class="d-flex flex-column min-vh-100">
+  <main>
+    <br><br><br><br><br>
+    <div class="container mt-auto">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <h2>Añadir Arma</h2>
+          <form class="was-validated">
+            <div class="mb-3 mt-3">
+              <label id="tipoproducto"
+              class="form-label">Tipo de Arma:</label>
+              <select [(ngModel)]="formulario" [ngModelOptions]="{standalone: true}" class="form-select" aria-label="Default select example" required>
+                <option selected></option>
+                <option value="1">Arma Blanca</option>
+                <option value="2">Arma de Fuego</option>
+              </select>
+            </div>
+
+
+            <div class="mb-3" *ngIf="formulario == 1" >
+              <label class="form-label">nombre:</label>
+              <input type="text" class="form-control" placeholder="p.e., Ka-Bar" name="nombre" minlength="3"
+                maxlength="20" [(ngModel)]="blanca.nombre" required>
+            </div>
+            <div class="mb-3" *ngIf="formulario == 1">
+              <label class="form-label">Peso:</label>
+              <input type="text" class="form-control" placeholder="p.e., 500g" name="peso" minlength="3"
+                maxlength="10" [(ngModel)]="blanca.peso" required>
+            </div>
+        
+            
+            <div class="mb-3 input-group" *ngIf="formulario == 1">
+              <label class="form-label">Longitud:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="number" class="form-control" placeholder="p.e. 1000mm" name="longitudEnMilimetros" minlength="1"
+                maxlength="2" min="4" [(ngModel)]="blanca.longitudEnMilimetros" required>
+            </div>
+           
+            <div class="mb-3" *ngIf="formulario == 2">
+              <label class="form-label">Nombre:</label>
+              <input type="text" class="form-control" placeholder="p.e., HK-G36E" name="nombre" minlength="3"
+                maxlength="20" [(ngModel)]="fuego.nombre" required>
+            </div>
+            <div class="mb-3" *ngIf="formulario == 2">
+              <label class="form-label">Peso:</label>
+              <input type="text" class="form-control" placeholder="p.e., 4500g" name="peso fuego"
+                minlength="3" maxlength="10" [(ngModel)]="fuego.peso" required>
+            </div>
+            <div class="mb-3 input-group" *ngIf="formulario == 2">
+              <label class="form-label">C.E:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="text" class="form-control" placeholder="p.e., toma de gases" name="sistemaAccion" minlength="1"
+                maxlength="30" [(ngModel)]="fuego.sistemaAccion" required>
+            </div>
+            <div class="mb-3 input-group" *ngIf="formulario == 2">
+              <label class="form-label">Calibre del Arma:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="number" class="form-control" placeholder="calibre en mm" name="calibreEnMilimetros" min="17"
+                minlength="2" maxlength="3" min="1" max="100" [(ngModel)]="fuego.calibreEnMilimetros" required #prod21="ngModel" [ngClass]="{
+                  'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
+                  'is-valid': ! prod21.invalid
+                }" /><span class="input-group-text">€</span>
+                  <div class="text-danger" *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)">
+                    <div *ngIf="prod21.errors?.['min']"> El calibre debe ser mayor de 0</div>
+                  </div>
+                  </div>>
+            
+            
+          </form>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-2" *ngIf="formulario == 1 ">
+          <button id="guardarblanca" type="submit" class="btn btn-primary" (click)="onAddBlanca()">Guardar</button>
+        </div>
+        <div class="col-2" *ngIf="formulario == 2 ">
+          <button id="guardarfuego" type="submit" class="btn btn-primary" (click)="onAddFuego()">Guardar</button>
+        </div>
+        <div class="col-2" *ngIf="formulario == 1 || formulario == 2">
+          <a routerLink="/almacenes"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <pre>{{ blanca | json }}</pre>
+    <br>
+    <pre>{{ fuego | json }}</pre>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </main>
+</body>

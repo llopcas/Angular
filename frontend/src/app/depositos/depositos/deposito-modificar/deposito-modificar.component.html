@@ -1,0 +1,51 @@
+<header>
+<body class="d-flex flex-column min-vh-100">
+  <main>
+      <div class="container mt-auto">
+
+          <h2>Deposito- {{deposito.codigoDeposito}}</h2>
+
+          <div class="row justify-content-center">
+              <div class="col-8">
+              </div>
+          </div>
+          <div id="productos">
+              <app-armas></app-armas>
+          </div>
+          <div class="row justify-content-center">
+              <div class="col-2">
+                  <a (click)="onArmaCrear(deposito)"><button id="nuevoProducto" role="button" class="btn btn-success">
+                      Añadir Arma</button></a>
+              </div>
+
+              <div class="col-2">
+                  <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+              </div>
+
+
+          </div>
+
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+  </main>
+</body>
+</header>
+
+
+<!-- <section id="datosAlmacen" *ngIf="[almacen]">
+  <div class="form-row py-2">
+    <label>Localidad<sup class="text-danger">*</sup></label>
+    <input type="text" class="form-control" [(ngModel)]="almacen.localidad" placeholder="" name="alm"
+    required minlength="3" maxlength="25"/>
+    <div class="invalid-feedback">Por favor, rellene este campo.</div>
+    <div class="valid-feedback">Ok</div>
+  </div>
+</section> -->
+

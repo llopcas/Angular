@@ -1,18 +1,13 @@
-import { Deposito} from './deposito';
+import {Deposito } from "./deposito";
 
-export class DepositoImpl implements Deposito {
-  id: number;
-  codigoDeposito: string;
-  urlDeposito: string;
+export class DepositoImpl implements Deposito{
 
-  constructor(
-    id: number,
-    codigoDeposito: any,
-     urlDeposito: any
-  ) {
-    this.id = id;
-    this.codigoDeposito = codigoDeposito;
-    this.urlDeposito = urlDeposito;
+  idDeposito!: string;
+  codigoDeposito!: string;
+  urlDeposito!: string;
+
+  constructor(){
   }
+
 
 }

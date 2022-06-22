@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { AuxiliarService } from 'src/app/service/auxiliar.service';
 import { environment } from 'src/environments/environment';
 import { Deposito } from '../models/deposito';
 import { DepositoImpl } from '../models/deposito-impl';
@@ -11,66 +10,120 @@ import { DepositoImpl } from '../models/deposito-impl';
   providedIn: 'root'
 })
 export class DepositoService {
+
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}depositos`;
+  private urlEndPointTel: string = `${this.host}fuegos`;
 
-  constructor(
+
+constructor(
     private http: HttpClient,
-    private auxService: AuxiliarService) { }
+) { }
 
-    // findById(serviceId: any) :Observable<any> {
-    //   return this.http.get<any>(`${this.urlEndPoint}/${serviceId}`);
-    // }
-  getDepositos(): Observable<any> {
-    return this.http.get<any>(this.urlEndPoint);
+getId(url: string):string{
+      let posicionFinal: number = url.lastIndexOf('/');
+      let numId:string = url.slice(posicionFinal + 1, url.length);
+      return numId;
+    }
+
+
+getDepositos(): Observable<any> {
+  return this.http.get<any>(this.urlEndPoint);
   }
 
-  extraerDepositos(respuestaApi: any): Deposito[] {
-    const depositos: Deposito[] = [];
-    respuestaApi._embedded.depositos.forEach((p: any) => {   //mirar si fallo aqui
-      depositos.push(this.mapearDepositos(p));
+mapearDeposito(depositoApi: any): DepositoImpl {
+  let deposito: Deposito = new DepositoImpl();
+  deposito.idDeposito= this.getId(depositoApi._links.deposito.href);
+  deposito.codigoDeposito= depositoApi.codigoDeposito;
+  // deposito.urlDeposito=depositoApi._links.deposito.href;
+  return deposito;
+}
 
-    });
-    return depositos;
-  }
+extraerDepositos(respuestaApi: any): Deposito[] {
+  const depositos: Deposito[] = [];
+  respuestaApi._embedded.depositos.forEach((a: any) => {
+  depositos.push(this.mapearDeposito(a));
+  });
+  return depositos;
+}
 
-  mapearDepositos(depositoApi: any): DepositoImpl {
-    debugger;
-    const url = depositoApi._links.self.href;
-    const aux = url.split('/');
-    const id = parseInt(aux[aux.length-1]);
+crearDeposito(deposito: Deposito): Observable<any>{
+  return this.http.post(`${this.urlEndPoint}`, deposito).pipe(
+    catchError((e) =>{
+      if(e.status ===400) {
+        return throwError(()=> new Error (e));
+      }
+      if(e.roor.mensaje){
+        console.error(e.error.mensaje);
+      }
+      return throwError(()=> new Error(e));
+    })
+    );
+}
 
- return new DepositoImpl(
-  id,
-  depositoApi.codigoDeposito,
-  depositoApi.url)
+deleteDeposito(id: string): Observable<Deposito> {
+  return this.http
+    .delete<Deposito>(`${this.urlEndPoint}/${id}`).pipe(
+    catchError((e) =>{
+      if(e.status ===400) {
+        return throwError(()=> new Error (e));
+      }
+      if(e.roor.mensaje){
+        console.error(e.error.mensaje);
+      }
+        return throwError(()=> new Error(e));
+      })
+    );
+}
 
 
-  }
+updateDeposito(deposito:Deposito): Observable<any>{
+  return this.http.patch<any>(`${this.urlEndPoint}/${deposito.idDeposito}`, deposito).pipe(
+    catchError((e) => {
+      if (e.status === 400) {
+        return throwError(() => new Error(e));
+      }
+      if (e.error.mensaje) {
+        console.error(e.error.mensaje);
+      }
+      return throwError(() => new Error(e));
+      })
+    );
+}
 
-  create(deposito: Deposito): void {
-    console.log(`Se ha creado un nuevo empleado: ${JSON.stringify(deposito)}`);
-  }
-  postDeposito(deposito: DepositoImpl){
-    this.http.post(this.urlEndPoint, deposito).subscribe();
-  }
-  update(empl: DepositoImpl, id: number) : Observable<any>  {
-    return this.http.put<any>(`${this.urlEndPoint}/${id}`, empl);
-  }
+getDeposito(id:string): Observable<any>{
+  return this.http.get<any>(`${this.urlEndPoint}/${id}`).pipe(
+    catchError((e) => {
+      if (e.status === 400) {
+        return throwError(() => new Error(e));
+      }
+      if (e.error.mensaje) {
+        console.error(e.error.mensaje);
+      }
+      return throwError(() => new Error(e));
+    })
+  );
+}
 
-  getDepositosPagina(pagina: number): Observable<any> {
-    return this.auxService.getItemsPorPagina(this.urlEndPoint, pagina);
-  }
-  patchDeposito(deposito: DepositoImpl) {
-    return this.http.patch<any>(`${this.urlEndPoint}/${deposito.id}`, deposito);
-  }
-
-  deleteDeposito(id: number): Observable<Deposito> {
-    const url = `${this.urlEndPoint}/${id}`;
-    ;
-    return this.http.delete<any>(url);
-    
-  }
-
+getDepositosBuscados(sistemaAccion:string, calibreEnMilimetros:number): Observable<any>{
+  return this.http.get<any>(`${this.host}fuegos/search/buscar-armas?sistemaAccion=${sistemaAccion}&calibreEnMilimetros=${calibreEnMilimetros}`).pipe(
+    catchError((e) => {
+      if (e.status === 400) {
+        return throwError(() => new Error(e));
+      }
+      if (e.error.mensaje) {
+        console.error(e.error.mensaje);
+      }
+      return throwError(() => new Error(e));
+    })
+  );
+}
+extraerDepositosMetodo(respuestaApi: any): Deposito[] {
+  const depositos: Deposito[] = [];
+  respuestaApi._embedded.depositos.forEach((a: any) => {
+  depositos.push(this.mapearDeposito(a));
+  });
+  return depositos;
+}
 
 }

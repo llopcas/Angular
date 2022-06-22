@@ -1,35 +1,16 @@
 
-<section>
-  <div class="row">
-    <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3"></div>
-    <div class="col-10 col-sm-10 col-md-3 col-lg-2 col-xl-2">CODIGO DE DEPOSITO</div>
-    <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3"></div>
-    <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3"></div>
-  </div>
-</section>
 
-<a>
-<div *ngFor="let deposito of depositos">
-  <app-deposito-item [deposito]="deposito" (depositoSeleccionado)="verDatos($event)"></app-deposito-item>
-</div>
-</a>
-<!-- Modal -->
-<div class="modal fade" id="modalDeposito" tabindex="-1" role="dialog" aria-labelledby="datosDeposito" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="datosUsuario">Datos Completos Deposito</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="container-fluid min-vh-100" id="general">
+      <div class="row">
+        <h2>DEPOSITOS</h2>
       </div>
-      <div class="modal-body">
-        <app-deposito [deposito]='depositoVerDatos' (depositoEliminar)='onDepositoEliminar($event)'></app-deposito>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      <div *ngFor="let deposito of depositos" id="cadaDeposito">
+        <app-deposito-item
+        [deposito]="deposito"
+        
+        (depositoEditar)="onDepositoEditar($event)"
+        (depositoEliminar)="onDepositoEliminar($event)"
+        (depositoConsultar)="onDepositoConsultar($event)">
+        </app-deposito-item>
       </div>
     </div>
-  </div>
-</div>
-

@@ -1,0 +1,20 @@
+body{
+  margin-top: 300px;
+  align-content: center;
+  justify-content: center;
+  padding-left: 35%;
+color: rgb(133, 133, 133);
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+border-radius: 1rem;
+border-color: rgb(5, 5, 5);
+
+}
+#nuevoProducto{
+  background-color: rgb(145, 145, 145);
+  font-size: small;
+}
+
+#cancelar{
+  font-size: small;
+}

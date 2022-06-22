@@ -1,16 +1,12 @@
 import { Component } from '@angular/core';
-import { faSkype } from '@fortawesome/free-brands-svg-icons';
-import { faCoffee, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html', //Indica la ubicación de la plantilla HTML, si esta fuera corta, se podría poner todo aquí, pero con la etiqueta Template, en vezde TemplateURL
-  styleUrls: ['./app.component.css'] //Indica la ubicación de la plantilla CSS, Style, valdria para escribirlo desde aquí
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-
-
-
 export class AppComponent {
-  title = 'Bullseye'
+  title = 'Bullseye';
+
 }
