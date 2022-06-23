@@ -5,19 +5,24 @@
 
     <div class="col-sm-5">
       <li class="list-group-item">
-      Arma Blanca &nbsp;&nbsp;  {{blanca.nombre}}, {{blanca.peso}} g, {{blanca.longitudEnMilimetros}} mm,
+      Nº{{blanca.idArma}} {{blanca.nombre}} long. {{blanca.longitudEnMilimetros}} mm.  {{blanca.peso}} g, 
        
     
       </li>
     </div>
     <div class="col-sm-3">
+      <a>
+        <fa-icon [icon]="lupa" class="fa-2x" (click)="consultar()"></fa-icon>
+        &nbsp;
+      </a>
+      <a>
+        <fa-icon [icon]="pencil"class="fa-2x" (click)="modificarBlanca()"></fa-icon>&nbsp;
+       </a>
      <a>
         <fa-icon [icon]="trash" class="fa-2x" (click)="borrarBlanca()"></fa-icon>
         &nbsp;
       </a>
-      <a>
-       <fa-icon [icon]="pencil"class="fa-2x" (click)="modificarBlanca()"></fa-icon>&nbsp;
-      </a>
+     
     </div>
     </div>
   </div>

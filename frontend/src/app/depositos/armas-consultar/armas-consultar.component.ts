@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, throwError } from 'rxjs';
 import { BlancaImpl } from '../models/blanca-impl';
 import { FuegoImpl } from '../models/fuego-impl';
 import { ArmaService } from '../service/arma.service';
+import { DepositoService } from '../service/deposito.service';
 
 
 @Component({
@@ -16,18 +18,32 @@ export class ArmasConsultarComponent implements OnInit {
   fuegos: FuegoImpl[] = [];
   blancaVerDatos: BlancaImpl = new BlancaImpl();
   fuegoVerDatos: FuegoImpl = new FuegoImpl();
+  host: any;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router : Router,
-              private armaService: ArmaService) { }
+              private armaService: ArmaService,
+              private depositoService: DepositoService) { }
 
   ngOnInit(): void {
     let id: string = this.activatedRoute.snapshot.params['id'];
-    this.armaService.getArmasAlmacenados(id).subscribe((res) =>
-    this.blancas = this.armaService.extraerBlancas(res));
-    this.armaService.getArmasAlmacenados(id).subscribe((res) =>
-    this.fuegos = this.armaService.extraerFuego(res));
+       this.findArmas(id);
+
+    
+    /*this.depositoService.findArmas(id).subscribe((res) =>{
+      debugger;
+      this.fuegos = this.armaService.extraerFuego(res)
+  });*/
   }
+
+  findArmas(id:string){
+    this.depositoService.findArmas(id).subscribe((res) =>{
+      debugger;
+      this.blancas = this.armaService.extraerBlancas(res);
+      this.fuegos = this.armaService.extraerFuego(res);
+    });
+  }
+
 
   onBlancaConsultar(blancas: BlancaImpl){
     this.verDatosBlanca(blancas);
@@ -48,5 +64,14 @@ export class ArmasConsultarComponent implements OnInit {
   verDatosFuego(fuegos: FuegoImpl): void {
     this.fuegoVerDatos = fuegos;
   }
+  // deleteArmas(id: string): Observable <any>{
+  //   this.depositoService.findArmas(id).subscribe((res) =>{
+  //     debugger;
+  //     this.blancas = this.armaService.deleteBlanca(res);
+  //     this.fuegos = this.armaService.deleteFuego(res);
+  //   });
+
+  // }
+  
 
 }

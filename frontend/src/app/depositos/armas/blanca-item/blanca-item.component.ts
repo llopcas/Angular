@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { faPencil, faEye, faTrashCan, faEraser, faCapsules, faPenToSquare, faPenNib } from '@fortawesome/free-solid-svg-icons';
+import { faPencil, faEye, faTrashCan, faEraser, faCapsules, faPenToSquare, faPenNib, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Deposito } from '../../models/deposito';
 import { BlancaImpl } from '../../models/blanca-impl';
 
@@ -15,6 +15,7 @@ export class BlancaItemComponent implements OnInit {
   numPaginas: number = 0;
 
   @Input() blanca: BlancaImpl = new BlancaImpl();
+  @Output() blancaConsultar = new EventEmitter<BlancaImpl>();
   @Output() blancaEliminar = new EventEmitter<BlancaImpl>();
   @Output() blancaEditar= new EventEmitter<BlancaImpl>();
 
@@ -35,10 +36,13 @@ borrarBlanca(): void {
 modificarBlanca(): void {
   this.blancaEditar.emit(this.blanca);
 }
+consultar(): void{
+  this.blancaConsultar.emit(this.blanca);
+}
 
 pencil = faPencil;
 trash = faTrashCan;
 eraser=faEraser;
-
+lupa = faMagnifyingGlass;
 
 }

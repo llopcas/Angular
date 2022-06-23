@@ -15,6 +15,7 @@ export class DepositoConsultarComponent implements OnInit {
   deposito: Deposito = new DepositoImpl();
 
   constructor(private depositoService: DepositoService,
+    
     private activatedRoute: ActivatedRoute,
     private router: Router) { }
 

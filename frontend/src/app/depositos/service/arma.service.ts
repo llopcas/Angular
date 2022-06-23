@@ -81,6 +81,20 @@ export class ArmaService {
     );
   }
 
+  findBlanca(): Observable <any>{
+    return this.http.get(this.urlEndPointLav).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(() => new Error(e));
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }
+
   //delete
   deleteBlanca(id: string): Observable <any>{
     return this.http.delete(`${this.urlEndPointLav}/${id}`).pipe(
@@ -172,7 +186,19 @@ export class ArmaService {
       })
     );
   }
-
+  findFuego(): Observable <any>{
+    return this.http.get(this.urlEndPointTel).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return throwError(() => new Error(e));
+        }
+        if (e.error.mensaje) {
+          console.error(e.error.mensaje);
+        }
+        return throwError(() => new Error(e));
+      })
+    );
+  }
   //delete televisor
   deleteFuego(id: string): Observable <any>{
     return this.http.delete(`${this.urlEndPointTel}/${id}`).pipe(
