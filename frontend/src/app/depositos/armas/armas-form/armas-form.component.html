@@ -46,14 +46,14 @@
                 minlength="3" maxlength="10" [(ngModel)]="fuego.peso" required>
             </div>
             <div class="mb-3 input-group" *ngIf="formulario == 2">
-              <label class="form-label">C.E:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <label class="form-label">Sistema: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
               <input type="text" class="form-control" placeholder="p.e., toma de gases" name="sistemaAccion" minlength="1"
                 maxlength="30" [(ngModel)]="fuego.sistemaAccion" required>
             </div>
             <div class="mb-3 input-group" *ngIf="formulario == 2">
               <label class="form-label">Calibre del Arma:&nbsp;&nbsp;&nbsp;&nbsp;</label>
               <input type="number" class="form-control" placeholder="calibre en mm" name="calibreEnMilimetros" min="17"
-                minlength="2" maxlength="3" min="1" max="100" [(ngModel)]="fuego.calibreEnMilimetros" required #prod21="ngModel" [ngClass]="{
+                minlength="1" maxlength="8" min="1" max="100" [(ngModel)]="fuego.calibreEnMilimetros" required #prod21="ngModel" [ngClass]="{
                   'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
                   'is-valid': ! prod21.invalid
                 }" /><span class="input-group-text">€</span>
@@ -74,7 +74,7 @@
           <button id="guardarfuego" type="submit" class="btn btn-primary" (click)="onAddFuego()">Guardar</button>
         </div>
         <div class="col-2" *ngIf="formulario == 1 || formulario == 2">
-          <a routerLink="/almacenes"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+          <a routerLink="/depositos"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
         </div>
       </div>
     </div>

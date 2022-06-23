@@ -11,7 +11,7 @@
               <div class="col-lg-4 col-md-12" id="etiquetaLocalidad">
                 <label>Codigo de Deposito:<sup class="text-danger">*</sup></label>
                 <input type="text" class="form-control" [(ngModel)]="deposito.codigoDeposito" placeholder="Codigo de Deposito"
-                  name="alm" required minlength="3" maxlenght="8"  #alm="ngModel" [ngClass]="{
+                  name="deposito" required minlength="3" maxlenght="8"  #alm="ngModel" [ngClass]="{
                  'is-invalid': alm.invalid && (alm.dirty || alm.touched),
                   'is-valid': !alm.invalid}" />
                 <div class="text-danger" *ngIf="alm.invalid && (alm.dirty || alm.touched)">

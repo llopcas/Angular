@@ -26,7 +26,7 @@
           name="prod21" required maxlength="4" min="1" max="1500" #prod21="ngModel" [ngClass]="{
         'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
         'is-valid': ! prod21.invalid
-      }" /><span class="input-group-text">€</span>
+      }" /><span class="input-group-text">mm</span>
       <div class="text-danger" *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)">
         <div *ngIf="prod21.errors?.['min']"> La longitud no puede ser menor que 0</div>
       </div>
@@ -39,7 +39,7 @@
 
         <div class="col-2">
           <button id="guardar" type="submit" class="btn btn-primary" (click)="onModificarBlanca()"
-            routerLink="/almacenes">Guardar</button>
+            routerLink="/depositos">Guardar</button>
         </div>
 
         <div class="col-2">
