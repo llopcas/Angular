@@ -56,11 +56,11 @@
                 minlength="1" maxlength="8" min="1" max="100" [(ngModel)]="fuego.calibreEnMilimetros" required #prod21="ngModel" [ngClass]="{
                   'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
                   'is-valid': ! prod21.invalid
-                }" /><span class="input-group-text">€</span>
+                }" /><span class="input-group-text"></span>
                   <div class="text-danger" *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)">
                     <div *ngIf="prod21.errors?.['min']"> El calibre debe ser mayor de 0</div>
                   </div>
-                  </div>>
+                  </div>
             
             
           </form>
@@ -68,10 +68,10 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-2" *ngIf="formulario == 1 ">
-          <button id="guardarblanca" type="submit" class="btn btn-primary" (click)="onAddBlanca()">Guardar</button>
+          <button id="guardarblanca" type="submit" class="btn btn-primary" (click)="onAddBlanca()">Agregar Arma</button>
         </div>
         <div class="col-2" *ngIf="formulario == 2 ">
-          <button id="guardarfuego" type="submit" class="btn btn-primary" (click)="onAddFuego()">Guardar</button>
+          <button id="guardarfuego" type="submit" class="btn btn-primary" (click)="onAddFuego()">Agregar Arma</button>
         </div>
         <div class="col-2" *ngIf="formulario == 1 || formulario == 2">
           <a routerLink="/depositos"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
@@ -79,9 +79,9 @@
       </div>
     </div>
     <br>
-    <pre>{{ blanca | json }}</pre>
+    <!-- <pre>{{ blanca | json }}</pre>
     <br>
-    <pre>{{ fuego | json }}</pre>
+    <pre>{{ fuego | json }}</pre> -->
     <br>
     <br>
     <br>

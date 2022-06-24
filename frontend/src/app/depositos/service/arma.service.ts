@@ -15,7 +15,7 @@ export class ArmaService {
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}depositos`;
   private urlEndPointLav: string = `${this.host}blancas`;
-  private urlEndPointTel: string = `${this.host}fuegos`;
+  private urlEndPointTel: string = `${this.host}fuego`;
 
 
   constructor(
@@ -67,8 +67,8 @@ export class ArmaService {
   }
 
    //post
-   addBlanca(blanca: BlancaImpl): Observable <any>{
-    return this.http.post(this.urlEndPointLav, blanca).pipe(
+   addBlanca(blancas: BlancaImpl): Observable <any>{
+    return this.http.post(this.urlEndPointLav, blancas).pipe(
       catchError((e) => {
         if (e.status === 400) {
           return throwError(() => new Error(e));
@@ -110,8 +110,8 @@ export class ArmaService {
     );
   }
 //patch
-  updateBlanca(blanca: BlancaImpl){
-    return this.http.patch<any>(`${this.urlEndPointLav}/${blanca.idArma}`, blanca).pipe(
+  updateBlanca(blancas: BlancaImpl){
+    return this.http.patch<any>(`${this.urlEndPointLav}/${blancas.idArma}`, blancas).pipe(
       catchError((e) => {
         if (e.status === 400) {
           return throwError(() => new Error(e));
@@ -214,8 +214,8 @@ export class ArmaService {
     );
   }
 //patch televisor
-  updateFuego(fuego: FuegoImpl){
-    return this.http.patch<any>(`${this.urlEndPointTel}/${fuego.idArma}`, fuego).pipe(
+  updateFuego(fuegos: FuegoImpl){
+    return this.http.patch<any>(`${this.urlEndPointTel}/${fuegos.idArma}`, fuegos).pipe(
       catchError((e) => {
         if (e.status === 400) {
           return throwError(() => new Error(e));

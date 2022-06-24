@@ -1,14 +1,14 @@
 
 #general{
 
-  background-color:rgb(167, 164, 164);
+  background-color:rgb(130, 130, 130);
 
   align-items: center;
 
 }
 
 #cadaAlmacen{
-  background-color:rgb(142, 142, 142);
+  background-color:rgb(130, 130, 130);
 
   align-items: center;
 }
@@ -28,4 +28,7 @@ p {
 }
 .row{
   text-align: center;
+}
+div{
+  background-color:rgb(130, 130,130) ;
 }

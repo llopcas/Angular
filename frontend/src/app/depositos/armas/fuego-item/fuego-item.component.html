@@ -3,20 +3,25 @@
   <div class="row mb-2 justify-content-center">
     <hr class='w-100'>
     <div class="col-sm-5">
-      <li class="list-group-item">
-      Fuego &nbsp;&nbsp;  {{fuego.nombre}}, {{fuego.peso}}g, {{fuego.sistemaAccion}}, {{fuego.calibreEnMilimetros}}mm",
-       
-      </li>
+     
+   <h5> Nº{{fuego.idArma}} {{fuego.nombre}} Cal.{{fuego.calibreEnMilimetros}}mm {{fuego.peso}}g"</h5> 
+     
     </div>
     <div class="col-sm-3">
+      <a>
+        <fa-icon [icon]="lupa" class="fa-2x" (click)="consultarFuego()"></fa-icon>
+        &nbsp;
+      </a>
+      <a>
+        <fa-icon [icon]="pencil"class="fa-2x" (click)="modificarFuego()"></fa-icon>&nbsp;
+       </a>
      <a>
         <fa-icon [icon]="trash" class="fa-2x" (click)="borrarFuego()"></fa-icon>
         &nbsp;
       </a>
-      <a>
-       <fa-icon [icon]="pencil"class="fa-2x" (click)="modificarFuego()"></fa-icon>&nbsp;
-      </a>
+     
     </div>
     </div>
-  </div>
+    </div>
+  
   </main>

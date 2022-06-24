@@ -48,4 +48,5 @@ export class ArmasComponent implements OnInit {
     let url = `depositos/fuegos/editar/${fuegos.idArma}`;
     this.router.navigate([url])
   }
+  
 }

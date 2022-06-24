@@ -1,8 +1,5 @@
 <main>
   <div class="container mt-auto">
-
-    <h3>Armas Depositadas</h3>
-
     <div *ngFor="let blanca of blancas">
       <app-blancas-consultar [blanca]="blanca"
       (blancaConsultar)="onBlancaConsultar($event)">
@@ -17,7 +14,9 @@
       (fuegoConsultar)="onFuegoConsultar($event)">
       </app-fuegos-consultar>
 
-      <app-fuego-item [fuego]="fuego"></app-fuego-item>
+      <app-fuego-item [fuego]="fuego">
+
+      </app-fuego-item>
 
     </div>
   </div>

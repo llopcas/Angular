@@ -28,5 +28,12 @@ export class DepositoConsultarComponent implements OnInit {
   cargarDeposito(): string {
     return this.activatedRoute.snapshot.params['id'];
   }
-
+  onArmaCrear(depositos: Deposito){
+    this.verDatos(depositos);
+    let url = `depositos/editar/${depositos.idDeposito}/formularioArma`;
+    this.router.navigate([url]);
+  }
+  verDatos(depositos: Deposito): void {
+    this.deposito = depositos;
+  }
 }
