@@ -51,6 +51,12 @@ export class ArmasConsultarComponent implements OnInit {
     let url = `depositos/blancas/consultar/${blancas.idArma}`;
     this.router.navigate([url])
   }
+  onBlancaEditar(blancas: BlancaImpl){
+    debugger;
+    this.blancaVerDatos = blancas;
+    let url = `depositos/blancas/editar/${blancas.idArma}`;
+    this.router.navigate([url])
+  }
 
   verDatosBlanca(blanca: BlancaImpl): void {
     this.blancaVerDatos = blanca;
@@ -80,6 +86,12 @@ export class ArmasConsultarComponent implements OnInit {
      });
 
    }
+   onBlancaEliminar(blancas: BlancaImpl){
+    this.armaService.deleteBlanca(blancas.idArma).subscribe((res) =>{
+      debugger;
+      this.findArmas(this.depositoId);
+    });
+  }
   
 
 }

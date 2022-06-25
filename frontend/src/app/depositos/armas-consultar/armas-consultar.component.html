@@ -5,7 +5,10 @@
       (blancaConsultar)="onBlancaConsultar($event)">
       </app-blancas-consultar>
 
-      <app-blanca-item [blanca]="blanca"></app-blanca-item>
+      <app-blanca-item [blanca]="blanca"
+      (blancaEliminar)="onBlancaEliminar($event)"
+      (blancaEditar)="onBlancaEditar($event)"
+      (blancaConsultar)="onBlancaConsultar($event)"></app-blanca-item>
 
     </div>
 
@@ -18,7 +21,7 @@
       (fuegoEliminar)="onFuegoEliminar($event)"
       (fuegoEditar)="onFuegoEditar($event)"
       (fuegoConsultar)="onFuegoConsultar($event)"
-       ></app-fuego-item>
+      ></app-fuego-item>
       
 
     </div>

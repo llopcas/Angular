@@ -2,14 +2,17 @@ section {
   margin-left: 30%;
   margin-right: 30%;
   height: auto;
-  background-color:rgb(130, 130,130) 
 }
 
 label{
-  color:rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
   width:8cm;
 }
 
 input{
-  color:rgb(5, 5, 5);
+  color:rgb(0, 0, 0);
+}
+
+main{
+  background-color:rgb(130, 130,130) 
 }

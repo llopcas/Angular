@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faCirclePlus, faPencilAlt, faPenNib } from '@fortawesome/free-solid-svg-icons';
 import { Deposito } from '../../models/deposito';
 import { BlancaImpl } from '../../models/blanca-impl';
@@ -24,15 +24,16 @@ export class BlancaModificarComponent implements OnInit {
     private depositoService: DepositoService,
     private armaService: ArmaService,
     private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    let id: string = this.cargarBlanca();
-    this.armaService.getBlanca(id).subscribe(response=>
-      this.blanca = this.armaService.mapearBlanca(response));
-      this.depositoService.getDepositos().subscribe((r)=>
-      this.depositos=this.depositoService.extraerDepositos(r));
-  }
+    let id: string = this.activatedRoute.snapshot.params['id'];
+    this.armaService.getBlanca(id).subscribe(res =>      {
+      debugger;
+      this.blanca = this.armaService.mapearBlanca(res);
+  });
+}
 
   cargarBlanca(): string {
     return this.activatedRoute.snapshot.params['id'];

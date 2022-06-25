@@ -109,9 +109,9 @@ export class ArmaService {
       })
     );
   }
-//patch
+//put
   updateBlanca(blancas: BlancaImpl){
-    return this.http.patch<any>(`${this.urlEndPointLav}/${blancas.idArma}`, blancas).pipe(
+    return this.http.put<any>(`${this.urlEndPointLav}/${blancas.idArma}`, blancas).pipe(
       catchError((e) => {
         if (e.status === 400) {
           return throwError(() => new Error(e));

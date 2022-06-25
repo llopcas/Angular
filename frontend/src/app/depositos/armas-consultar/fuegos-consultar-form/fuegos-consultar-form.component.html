@@ -4,9 +4,12 @@
       <div class="container mt-auto">
           <div class="row justify-content-center">
               <div class="col-8">
-                <h2>Nº{{fuego.idArma}} {{fuego.nombre}} Cal.{{fuego.calibreEnMilimetros}}mm {{fuego.peso}} </h2>
+                <h2>Nº{{fuego.idArma}} {{fuego.nombre}} Cal.{{fuego.calibreEnMilimetros}}mm. {{fuego.peso}}g </h2>
               </div>
           </div>
       </div>
+      <div class="col-2">
+        <a routerLink="/depositos"><button id="cancelar" type="button" class="btn btn-danger">Volver</button></a>
+    </div>
   </main>
 </body>

@@ -27,16 +27,17 @@ export class BlancaItemComponent implements OnInit {
 
 //delete
 borrarBlanca(): void {
-  if (confirm(`¿Está seguro de que desea eliminar este arma?`)){
+
   this.blancaEliminar.emit(this.blanca);
-}
+
 }
 
-//patch
+//put
+
 modificarBlanca(): void {
   this.blancaEditar.emit(this.blanca);
 }
-consultar(): void{
+consultarBlanca(): void{
   this.blancaConsultar.emit(this.blanca);
 }
 

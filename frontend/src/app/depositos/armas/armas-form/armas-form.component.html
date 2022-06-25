@@ -34,6 +34,16 @@
               <input type="number" class="form-control" placeholder="p.e. 1000mm" name="longitudEnMilimetros" minlength="1"
                 maxlength="2" min="4" [(ngModel)]="blanca.longitudEnMilimetros" required>
             </div>
+            <div class="mb-3 input-group" *ngIf="formulario == 1">
+              <label class="form-label">Forma:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="text" class="form-control" placeholder="p.e. Curva" name="forma" minlength="1"
+                maxlength="20" min="14" required>
+            </div>
+            <div class="mb-3 input-group" *ngIf="formulario == 1">
+              <label class="form-label">Filo:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input type="text" class="form-control" placeholder="p.e. Serrado" name="filo" minlength="1"
+                maxlength="20" min="14" required>
+            </div>
            
             <div class="mb-3" *ngIf="formulario == 2">
               <label class="form-label">Nombre:</label>
@@ -52,13 +62,18 @@
             </div>
             <div class="mb-3 input-group" *ngIf="formulario == 2">
               <label class="form-label">Calibre del Arma:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-              <input type="number" class="form-control" placeholder="calibre en mm" name="calibreEnMilimetros" min="17"
+              <input type="text" class="form-control" placeholder="calibre en mm" name="calibreEnMilimetros" min="17"
                 minlength="1" maxlength="8" min="1" max="100" [(ngModel)]="fuego.calibreEnMilimetros" required #prod21="ngModel" [ngClass]="{
                   'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
                   'is-valid': ! prod21.invalid
                 }" /><span class="input-group-text"></span>
                   <div class="text-danger" *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)">
                     <div *ngIf="prod21.errors?.['min']"> El calibre debe ser mayor de 0</div>
+                  </div>
+                  <div class="mb-3 input-group" *ngIf="formulario == 2">
+                    <label class="form-label">Cargador: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" class="form-control" placeholder="p.e., 30" name="Cargador" minlength="1"
+                      maxlength="30" required>
                   </div>
                   </div>
             
