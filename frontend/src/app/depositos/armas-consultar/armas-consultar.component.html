@@ -14,9 +14,12 @@
       (fuegoConsultar)="onFuegoConsultar($event)">
       </app-fuegos-consultar>
 
-      <app-fuego-item [fuego]="fuego">
-
-      </app-fuego-item>
+      <app-fuego-item [fuego]="fuego"
+      (fuegoEliminar)="onFuegoEliminar($event)"
+      (fuegoEditar)="onFuegoEditar($event)"
+      (fuegoConsultar)="onFuegoConsultar($event)"
+       ></app-fuego-item>
+      
 
     </div>
   </div>

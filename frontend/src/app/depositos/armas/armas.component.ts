@@ -44,6 +44,7 @@ export class ArmasComponent implements OnInit {
   }
 
   onFuegoEditar(fuegos: FuegoImpl){
+    debugger;
     this.fuegoVerDatos = fuegos;
     let url = `depositos/fuegos/editar/${fuegos.idArma}`;
     this.router.navigate([url])

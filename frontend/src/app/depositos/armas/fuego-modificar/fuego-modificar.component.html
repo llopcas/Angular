@@ -2,7 +2,8 @@
 <main>
   <br><br><br><br><br><br><br><br>
 
-<section id="datosLavadora" *ngIf="[fuego]">
+<section id="datosfuego" *ngIf="[fuego]">
+  <form>
   <div class="form-row py-2">
     <label>Nombre<sup class="text-danger">*</sup></label>
     <input type="text" class="form-control" [(ngModel)]="fuego.nombre" placeholder="Por ejemplo, HK-G36E"
@@ -54,6 +55,7 @@
 
   </div>
   <br>
+  </form>
 </section>
 <br><br><br><br><br>
     </main>

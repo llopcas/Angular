@@ -23,18 +23,19 @@ export class FuegoModificarComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    let id: string = this.cargarFuego();
-    this.armaService.getFuego(id).subscribe(res =>
-      this.fuego = this.armaService.mapearFuego(res));
-    this.depositoService.getDepositos().subscribe((response) =>
-      this.depositos = this.depositoService.extraerDepositos(response));
-  }
-
-  cargarFuego(): string {
-    return this.activatedRoute.snapshot.params['id'];
+    debugger;
+    let id: string = this.activatedRoute.snapshot.params['id'];
+    this.armaService.getFuego(id).subscribe(res =>      {
+      debugger;
+      this.fuego = this.armaService.mapearFuego(res);
+  });
+    
+    /*  this.depositoService.getDepositos().subscribe((response) =>
+      this.depositos = this.depositoService.extraerDepositos(response));*/
   }
 
   onEditarFuego(): void {
+    debugger;
     this.armaService.updateFuego(this.fuego).subscribe();
   }
 

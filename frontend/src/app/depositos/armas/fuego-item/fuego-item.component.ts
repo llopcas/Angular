@@ -34,6 +34,7 @@ borrarFuego(): void {
 
 //patch
 modificarFuego(): void {
+  debugger;
   this.fuegoEditar.emit(this.fuego);
 }
 

@@ -33,6 +33,7 @@ export class ArmasFormComponent implements OnInit {
       private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    debugger;
     let id: string = this.cargarDeposito();
     this.blanca.deposito=`${this.urlEndpoint}/${id}`;
     this.fuego.deposito=`${this.urlEndpoint}/${id}`;
@@ -44,14 +45,14 @@ export class ArmasFormComponent implements OnInit {
 
   onAddBlanca(): void {
     this.armaService.addBlanca(this.blanca).subscribe();
-    let id: string = this.cargarDeposito();
-    this.router.navigate([`/almacenes/editar/${id}`]);
+    /*let id: string = this.cargarDeposito();
+    this.router.navigate([`/almacenes/editar/${id}`]);*/
   }
 
   onAddFuego(): void {
     this.armaService.addFuego(this.fuego).subscribe();
-    let id: string = this.cargarDeposito();
-    this.router.navigate([`/almacenes/editar/${id}`]);
+    /*let id: string = this.cargarDeposito();
+    this.router.navigate([`/almacenes/editar/${id}`]);*/
   }
 
   pencil=faPencil;

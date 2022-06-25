@@ -19,6 +19,7 @@ export class ArmasConsultarComponent implements OnInit {
   blancaVerDatos: BlancaImpl = new BlancaImpl();
   fuegoVerDatos: FuegoImpl = new FuegoImpl();
   host: any;
+  depositoId:string ='';
 
   constructor(private activatedRoute: ActivatedRoute,
               private router : Router,
@@ -26,8 +27,8 @@ export class ArmasConsultarComponent implements OnInit {
               private depositoService: DepositoService) { }
 
   ngOnInit(): void {
-    let id: string = this.activatedRoute.snapshot.params['id'];
-       this.findArmas(id);
+    this.depositoId  = this.activatedRoute.snapshot.params['id'];
+       this.findArmas(this.depositoId);
 
     
     /*this.depositoService.findArmas(id).subscribe((res) =>{
@@ -56,22 +57,29 @@ export class ArmasConsultarComponent implements OnInit {
   }
 
   onFuegoConsultar(fuegos: FuegoImpl){
+    debugger;
     this.verDatosFuego(fuegos);
     let url = `depositos/fuegos/consultar/${fuegos.idArma}`;
+    this.router.navigate([url])
+  }
+
+  onFuegoEditar(fuegos: FuegoImpl){
+    debugger;
+    this.fuegoVerDatos = fuegos;
+    let url = `depositos/fuegos/editar/${fuegos.idArma}`;
     this.router.navigate([url])
   }
 
   verDatosFuego(fuegos: FuegoImpl): void {
     this.fuegoVerDatos = fuegos;
   }
-  // deleteArmas(id: string): Observable <any>{
-  //   this.depositoService.findArmas(id).subscribe((res) =>{
-  //     debugger;
-  //     this.blancas = this.armaService.deleteBlanca(res);
-  //     this.fuegos = this.armaService.deleteFuego(res);
-  //   });
+   onFuegoEliminar(fuego: FuegoImpl){
+     this.armaService.deleteFuego(fuego.idArma).subscribe((res) =>{
+       debugger;
+       this.findArmas(this.depositoId);
+     });
 
-  // }
+   }
   
 
 }

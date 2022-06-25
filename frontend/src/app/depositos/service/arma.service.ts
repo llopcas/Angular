@@ -155,6 +155,8 @@ export class ArmaService {
     fuegoNuevo.sistemaAccion=fuegoApi.sistemaAccion;
     fuegoNuevo.calibreEnMilimetros=fuegoApi.calibreEnMilimetros;
     fuegoNuevo.idArma=this.getId(fuegoApi._links.fuego.href);
+    fuegoNuevo.deposito= `${this.host}deposito/${this.getDepId(fuegoApi._links.deposito.href)}`;
+    debugger;
     return fuegoNuevo;
 
   }
@@ -199,7 +201,7 @@ export class ArmaService {
       })
     );
   }
-  //delete televisor
+  //delete 
   deleteFuego(id: string): Observable <any>{
     return this.http.delete(`${this.urlEndPointTel}/${id}`).pipe(
       catchError((e) => {
@@ -213,9 +215,10 @@ export class ArmaService {
       })
     );
   }
-//patch televisor
-  updateFuego(fuegos: FuegoImpl){
-    return this.http.patch<any>(`${this.urlEndPointTel}/${fuegos.idArma}`, fuegos).pipe(
+//put
+  updateFuego(fuego: FuegoImpl){
+    debugger;
+    return this.http.put<any>(`${this.urlEndPointTel}/${fuego.idArma}`, fuego).pipe(
       catchError((e) => {
         if (e.status === 400) {
           return throwError(() => new Error(e));
@@ -254,4 +257,10 @@ export class ArmaService {
     return numId;
   }
 
+  getDepId(url:string): string {
+    let posicionFinal:string[] = url.split('/');
+    let numId: string = posicionFinal[posicionFinal.length-2];
+    return numId;
+  }
+ 
 }
