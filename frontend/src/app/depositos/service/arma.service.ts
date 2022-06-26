@@ -41,13 +41,13 @@ export class ArmaService {
 
     let blancaNueva: BlancaImpl = new BlancaImpl();
 
-    // blancNueva.deposito=depositoApi._links.deposito.href;
-    // blancaNueva.calificacionEnergetica=blancaApi.calificacionEnergetica;
+   
     blancaNueva.longitudEnMilimetros= blancaApi.longitudEnMilimetros;
     blancaNueva.nombre= blancaApi.nombre;
-    // blancaNueva.modelo= blancaApi.modelo;
+    blancaNueva.filo= blancaApi.filo;
     blancaNueva.peso= blancaApi.peso;
-    // lavadoraNueva.urlProducto=lavadoraApi._links.self.href;
+    blancaNueva.forma= blancaApi.forma;
+  
     blancaNueva.idArma=this.getId(blancaApi._links.blanca.href);
     return blancaNueva;
   }
@@ -154,6 +154,7 @@ export class ArmaService {
     fuegoNuevo.peso= fuegoApi.peso;
     fuegoNuevo.sistemaAccion=fuegoApi.sistemaAccion;
     fuegoNuevo.calibreEnMilimetros=fuegoApi.calibreEnMilimetros;
+    fuegoNuevo.cargador= fuegoApi.cargador;
     fuegoNuevo.idArma=this.getId(fuegoApi._links.fuego.href);
     fuegoNuevo.deposito= `${this.host}deposito/${this.getDepId(fuegoApi._links.deposito.href)}`;
     debugger;
@@ -174,7 +175,7 @@ export class ArmaService {
     return fuegos;
   }
 
-   //post televisor
+   //post 
    addFuego(fuego: FuegoImpl): Observable <any>{
     return this.http.post(this.urlEndPointTel, fuego).pipe(
       catchError((e) => {
@@ -244,12 +245,6 @@ export class ArmaService {
       })
     );
   }
-
-
-
-  // getProductosPagina(pagina: number): Observable<any> {
-  //   return this.auxService.getItemsPorPagina(this.urlEndPoint, pagina);
-  // }
 
   getId(url:string): string {
     let posicionFinal: number = url.lastIndexOf('/');
