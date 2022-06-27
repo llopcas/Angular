@@ -4,7 +4,7 @@
     <section id="datosBlanca" *ngIf="[blanca]">
       <form>
       <div class="form-row py-2">
-        <label>Marca<sup class="text-danger">*</sup></label>
+        <label>Nombre<sup class="text-danger">*</sup></label>
         <input type="text" class="form-control" [(ngModel)]="blanca.nombre" placeholder="Por ejemplo, KA-BAR" name="prod"
           required maxlength="15" />
         <div class="invalid-feedback">Por favor, rellene este campo.</div>
@@ -34,7 +34,21 @@
        
         <div class="valid-feedback">Ok</div>
       </div>
+      <div class="form-row py-2">
+        <label>Filo<sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" [(ngModel)]="blanca.filo" placeholder="Por ejemplo, Mixto" name="prod"
+          required maxlength="15" />
+        <div class="invalid-feedback">Por favor, rellene este campo.</div>
+        <div class="valid-feedback">Ok</div>
+      </div>
 
+      <div class="form-row py-2">
+        <label>Forma<sup class="text-danger">*</sup></label>
+        <input type="text" class="form-control" [(ngModel)]="blanca.forma" placeholder="Por ejemplo, drop point" name="prod"
+          required maxlength="15" />
+        <div class="invalid-feedback">Por favor, rellene este campo.</div>
+        <div class="valid-feedback">Ok</div>
+      </div>
       
       <div class="row justify-content-center">
 

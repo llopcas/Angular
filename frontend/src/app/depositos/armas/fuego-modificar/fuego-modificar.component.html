@@ -31,7 +31,7 @@
   <div class="form-row py-2">
     <label>Calibre<sup class="text-danger">*</sup></label>
     <input type="number" class="form-control" [(ngModel)]="fuego.calibreEnMilimetros" placeholder='P.e., 5.56mm ' name="prod21"
-      required min="3" max="6" #prod21="ngModel" [ngClass]="{
+      required step="0.1" min="0" max="20" #prod21="ngModel" [ngClass]="{
         'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
         'is-valid': ! prod21.invalid
       }" /><span class="input-group-text">mm</span>
@@ -40,6 +40,12 @@
       </div>
     <div class="invalid-feedback">Por favor, rellene este campo.</div>
     <div class="valid-feedback">Ok</div>
+  </div>
+
+  <div class="form-row py-2">
+    <label>Cargador<sup class="text-danger">*</sup></label>
+    <input type="number" class="form-control" placeholder="Por ejemplo, 17" name="sistemaAccion" minlength="2" maxlength="20"
+          [(ngModel)]="fuego.cargador" required>
   </div>
  
   <div class="row justify-content-center">
