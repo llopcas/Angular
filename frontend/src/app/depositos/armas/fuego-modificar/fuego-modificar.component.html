@@ -5,7 +5,7 @@
 <section id="datosfuego" *ngIf="[fuego]">
   <form>
   <div class="form-row py-2">
-    <label>Nombre<sup class="text-danger">*</sup></label>
+    <label>Nombre<sup class="text-danger"></sup></label>
     <input type="text" class="form-control" [(ngModel)]="fuego.nombre" placeholder="Por ejemplo, HK-G36E"
      name="prod"
     required  maxlength="15"/>
@@ -13,7 +13,7 @@
     <div class="valid-feedback">Ok</div>
   </div>
   <div class="form-row py-2">
-    <label>Peso<sup class="text-danger">*</sup></label>
+    <label>Peso<sup class="text-danger"></sup></label>
     <input type="text" class="form-control" [(ngModel)]="fuego.peso"
      placeholder="P. e., 4500g" name="prod2"
       required minlength="5" maxlength="5" #prod2="ngModel" [ngClass]="{
@@ -24,17 +24,17 @@
     <div class="valid-feedback">ok</div>
   </div>
     <div class="form-row py-2">
-    <label>Sistema<sup class="text-danger">*</sup></label>
+    <label>Sistema<sup class="text-danger"></sup></label>
     <input type="text" class="form-control" placeholder="Por ejemplo, Toma de Gases" name="sistemaAccion" minlength="2" maxlength="20"
           [(ngModel)]="fuego.sistemaAccion" required>
   </div>
   <div class="form-row py-2">
-    <label>Calibre<sup class="text-danger">*</sup></label>
+    <label>Calibre<sup class="text-danger"></sup></label>
     <input type="number" class="form-control" [(ngModel)]="fuego.calibreEnMilimetros" placeholder='P.e., 5.56mm ' name="prod21"
-      required step="0.1" min="0" max="20" #prod21="ngModel" [ngClass]="{
+      required step="0.01" min="0" max="20" #prod21="ngModel" [ngClass]="{
         'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
         'is-valid': ! prod21.invalid
-      }" /><span class="input-group-text">mm</span>
+      }" />
       <div class="text-danger" *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)">
         <div *ngIf="prod21.errors?.['min']"> El Calibre no puede ser menor que 0</div>
       </div>
@@ -43,7 +43,7 @@
   </div>
 
   <div class="form-row py-2">
-    <label>Cargador<sup class="text-danger">*</sup></label>
+    <label>Cargador<sup class="text-danger"></sup></label>
     <input type="number" class="form-control" placeholder="Por ejemplo, 17" name="sistemaAccion" minlength="2" maxlength="20"
           [(ngModel)]="fuego.cargador" required>
   </div>

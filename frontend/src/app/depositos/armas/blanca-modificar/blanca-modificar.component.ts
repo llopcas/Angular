@@ -30,14 +30,14 @@ export class BlancaModificarComponent implements OnInit {
   ngOnInit(): void {
     let id: string = this.activatedRoute.snapshot.params['id'];
     this.armaService.getBlanca(id).subscribe(res =>      {
-      debugger;
       this.blanca = this.armaService.mapearBlanca(res);
+      debugger;
   });
 }
 
-  cargarBlanca(): string {
-    return this.activatedRoute.snapshot.params['id'];
-  }
+  // cargarBlanca(): string {
+  //   return this.activatedRoute.snapshot.params['id'];
+  // }
 
   onModificarBlanca(): void {
     this.armaService.updateBlanca(this.blanca).subscribe();
