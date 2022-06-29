@@ -4,13 +4,15 @@
     <section id="datosBlanca" *ngIf="[blanca]">
       <form>
       <div class="form-row py-2">
+        <div class=" col-9 row">
         <label>Nombre<sup class="text-danger"></sup></label>
     <input type="text" class="form-control" [(ngModel)]="blanca.nombre" name="nombre" #nombre="ngModel" placeholder="Por ejemplo, Kabar"
      
     required  maxlength="15"/>
-    
+        </div>
       </div>
       <div class="form-row py-2">
+        <div class=" col-4 row">
         <label>Peso<sup class="text-danger"></sup></label>
         <input type="text" class="form-control" [(ngModel)]="blanca.peso" placeholder="P. e., 500g"
           name="prod2" required minlength="9" maxlength="9" #prod2="ngModel" [ngClass]="{
@@ -20,8 +22,8 @@
         <div class="invalid-feedback">Por favor, rellene este campo.</div>
         <div class="valid-feedback">ok</div>
       </div>
-      
-      <div class="form-row py-2">
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <div class=" col-4 row">
         <label>Longitud<sup class="text-danger"></sup></label>
         <input type="number" class="form-control" [(ngModel)]="blanca.longitudEnMilimetros" placeholder="P.e., 60 mm"
           name="prod21" required maxlength="4" min="1" max="1500" #prod21="ngModel" [ngClass]="{
@@ -34,30 +36,37 @@
        
         <div class="valid-feedback">Ok</div>
       </div>
+      </div>
+      
+
       <div class="form-row py-2">
+        <div class=" col-4 row">
+        <label>Forma<sup class="text-danger"></sup></label>
+        <input type="text" class="form-control" [(ngModel)]="blanca.forma" placeholder="Por ejemplo, drop point" name="prod"
+          required maxlength="15" />
+        <div class="invalid-feedback">Por favor, rellene este campo.</div>
+        <div class="valid-feedback">Ok</div>
+        </div>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <div class=" col-4 row">
         <label>Filo<sup class="text-danger"></sup></label>
         <input type="text" class="form-control" [(ngModel)]="blanca.filo" placeholder="Por ejemplo, Mixto" name="prod"
           required maxlength="15" />
         <div class="invalid-feedback">Por favor, rellene este campo.</div>
         <div class="valid-feedback">Ok</div>
       </div>
-
-      <div class="form-row py-2">
-        <label>Forma<sup class="text-danger"></sup></label>
-        <input type="text" class="form-control" [(ngModel)]="blanca.forma" placeholder="Por ejemplo, drop point" name="prod"
-          required maxlength="15" />
-        <div class="invalid-feedback">Por favor, rellene este campo.</div>
-        <div class="valid-feedback">Ok</div>
       </div>
-      
-      <div class="row justify-content-center">
 
-        <div class="col-2">
+     
+      
+      <div class="row justify-content-center ">
+
+        <div class="col-4">
           <button id="guardar" type="submit" class="btn btn-primary" (click)="onModificarBlanca()"
             routerLink="/depositos">Guardar</button>
         </div>
-
-        <div class="col-2">
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        <div class="col-4">
           <a routerLink="/"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
         </div>
 

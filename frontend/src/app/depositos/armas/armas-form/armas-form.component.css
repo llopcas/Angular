@@ -52,3 +52,12 @@ main p {
 label{
   color:rgb(5, 5, 5);
 }
+
+.contenedor{
+  
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+}

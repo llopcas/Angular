@@ -13,6 +13,7 @@
     <div class="valid-feedback">Ok</div>
   </div>
   <div class="form-row py-2">
+    <div clas=" col-3 row">
     <label>Peso<sup class="text-danger"></sup></label>
     <input type="text" class="form-control" [(ngModel)]="fuego.peso"
      placeholder="P. e., 4500g" name="prod2"
@@ -22,13 +23,9 @@
       }" />
     <div class="invalid-feedback">Por favor, rellene este campo.</div>
     <div class="valid-feedback">ok</div>
-  </div>
-    <div class="form-row py-2">
-    <label>Sistema<sup class="text-danger"></sup></label>
-    <input type="text" class="form-control" placeholder="Por ejemplo, Toma de Gases" name="sistemaAccion" minlength="2" maxlength="20"
-          [(ngModel)]="fuego.sistemaAccion" required>
-  </div>
-  <div class="form-row py-2">
+    </div>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <div class=" col-3 row">
     <label>Calibre<sup class="text-danger"></sup></label>
     <input type="number" class="form-control" [(ngModel)]="fuego.calibreEnMilimetros" placeholder='P.e., 5.56mm ' name="prod21"
       required step="0.01" min="0" max="20" #prod21="ngModel" [ngClass]="{
@@ -38,24 +35,47 @@
       <div class="text-danger" *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)">
         <div *ngIf="prod21.errors?.['min']"> El Calibre no puede ser menor que 0</div>
       </div>
-    <div class="invalid-feedback">Por favor, rellene este campo.</div>
+    <div class="invalid-feedback">Por favor, rellene este campo con un valor entre 0 y 20 mm.</div>
     <div class="valid-feedback">Ok</div>
   </div>
-
+  </div>
+  
   <div class="form-row py-2">
+    <div clas=" col-3 row">
+    <label for="imputSistema">Sistema
+    </label>
+      <select type="text" [(ngModel)]="fuego.sistemaAccion" class="form-control" id="inputSitema" placeholder="Elige un Sistema de accion"
+    name="provincia"
+    required
+    minlength="5"
+    maxlength ='100'
+    #sistema="ngModel"
+    [ngClass]="{
+    'is-invalid': sistema.invalid && (sistema.dirty || sistema.touched),
+    'is-valid': !sistema.invalid
+    }">
+      <option value="">Elige un Sistema de Accion</option>
+      <option value="Toma de gases">Toma de gases</option>
+      <option value="Masas">Masas</option>
+    </select>
+  </div>
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <div class=" col-3 row">
+
     <label>Cargador<sup class="text-danger"></sup></label>
-    <input type="number" class="form-control" placeholder="Por ejemplo, 17" name="sistemaAccion" minlength="2" maxlength="20"
+    <input type="number" class="form-control" placeholder="Por ejemplo, 17" name="cargador" minlength="2" maxlength="20"
           [(ngModel)]="fuego.cargador" required>
+  </div>
   </div>
  
   <div class="row justify-content-center">
 
-    <div class="col-2">
+    <div class="col-3">
       <button id="guardar" type="submit" class="btn btn-primary" (click)="onEditarFuego()"
         routerLink="/depositos">Guardar</button>
     </div>
-
-    <div class="col-2">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <div class="col-3">
       <a routerLink="/depositos"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
     </div>
 
